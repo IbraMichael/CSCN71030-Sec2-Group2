@@ -12,6 +12,6 @@ struct Doctor {
 	char Name[15];
 	int age;
 	char gender;
-	int ID;
+	int ID [20];
 
 };
