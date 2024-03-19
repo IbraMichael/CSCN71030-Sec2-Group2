@@ -7,11 +7,3 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include <string.h>
-
-struct Doctor {
-	char Name[15];
-	int age;
-	char gender;
-	int ID [20];
-
-};
