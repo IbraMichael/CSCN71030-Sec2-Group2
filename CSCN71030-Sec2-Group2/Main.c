@@ -91,7 +91,7 @@ void clearInputBuffer(void) {
     while ((c = getchar()) != '\n' && c != EOF) {}
 }
 
-void showDocPatientsDashboard()
+void showDoctorDashboard()
 {
     char choice;
     char searchCriteria[100];
@@ -221,37 +221,9 @@ void showBillingMenu()
 {
     printf("\n--- Billing Management ---\n");
     printf("Placeholder for billing functionality.\n");
-    // Implement billing options here
+   
 }
 
-
-void showDoctorDashboard()
-{
-    char choice;
-    printf("Welcome, Doctor! Here are your options:\n");
-
-    printf("1) Patient:\n");
-    printf("1) Bills:\n");
-
-    scanf(" %c", &choice);
-
-    switch (choice) {
-    case '1':
-
-        showDocPatientsDashboard();
-
-        break;
-    case '2':
-
-        showBillingMenu();
-
-        break;
-
-    default:
-        printf("Invalid choice. Please try again.\n");
-    }
-
-}
 
 
 // Function to show the nurse dashboard
