@@ -132,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Doctor.h" />
+    <ClInclude Include="EList.h" />
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="PList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

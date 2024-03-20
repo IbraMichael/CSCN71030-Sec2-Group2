@@ -26,5 +26,14 @@
     <ClInclude Include="Doctor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Employee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
