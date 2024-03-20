@@ -21,6 +21,9 @@
     <ClCompile Include="Doctor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Patients.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Doctor.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patients.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
