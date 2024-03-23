@@ -12,6 +12,7 @@ typedef struct patient {
     char familyDoctorName[100];
     char address[100];
     char gender[10];
+    int bills;
 } PATIENT;
 
 // Function prototypes

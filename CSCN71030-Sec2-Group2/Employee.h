@@ -17,7 +17,6 @@ typedef struct employee {
 	DATA data;
 	char* username;
 	char* password;
-	PNODE* Patients;
 }EMPLOYEE;
 
 EMPLOYEE createNurseEmployee(NURSE n, char* username, char* password);

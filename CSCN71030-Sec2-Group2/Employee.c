@@ -19,6 +19,9 @@ EMPLOYEE createDoctorEmployee(Doctor d, char* username, char* password) {
 	return e;
 }
 void printEmployee(EMPLOYEE e) {
-	if(e.role == NURSE_ROLE)
-
+	if (e.role == NURSE_ROLE) {
+		printf("Nurse %s\n Username: %s\n", e.data.n.name, e.username);
+	}
+	if (e.role == DOCTOR_ROLE)
+		printf("Doctor %s\n Username: %s\n", e.data.d.Name, e.username);
 }
