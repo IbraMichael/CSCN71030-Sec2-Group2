@@ -135,6 +135,7 @@
     <ClCompile Include="Main.c" />
     <ClCompile Include="Nurse.c" />
     <ClCompile Include="Patients.c" />
+    <ClCompile Include="Prescription.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Appointment.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Labs.h" />
     <ClInclude Include="Nurse.h" />
     <ClInclude Include="Patients.h" />
+    <ClInclude Include="Prescription.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
