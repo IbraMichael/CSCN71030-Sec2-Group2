@@ -6,7 +6,6 @@ EMPLOYEE createNurseEmployee(NURSE n, char* username, char* password) {
 	e.data.n = n;
 	e.username = username;
 	e.password = password;
-	e.Patients = NULL;
 	return e;
 }
 EMPLOYEE createDoctorEmployee(Doctor d, char* username, char* password) {
@@ -15,7 +14,6 @@ EMPLOYEE createDoctorEmployee(Doctor d, char* username, char* password) {
 	e.role = DOCTOR_ROLE;
 	e.username = username;
 	e.password = password;
-	e.Patients = NULL;
 	return e;
 }
 void printEmployee(EMPLOYEE e) {
