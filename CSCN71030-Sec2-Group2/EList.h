@@ -11,4 +11,4 @@ void insertENode(ENODE** head, ENODE* newNode);
 ENODE* searchENode(ENODE* head, char* username);
 void deleteENode(ENODE* toDelete, ENODE** head);
 void saveListToFile(ENODE* head, char* filename);
-void loadListFromFile(char* filename);
+ENODE* loadListFromFile(char* filename);
