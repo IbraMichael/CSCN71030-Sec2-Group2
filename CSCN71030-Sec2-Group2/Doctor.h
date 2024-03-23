@@ -6,7 +6,7 @@
 
 // Define a struct for a doctor
 struct Doctor {
-	char name;
+	char name[80];
 	int id;
 	char email[50];
 
