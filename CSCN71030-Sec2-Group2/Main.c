@@ -227,7 +227,126 @@ void showBillingMenu()
 
 
 // Function to show the nurse dashboard
-void showNurseDashboard() {
+void showNurseDashboard() 
+{
+
+    int select;
     printf("Welcome, Nurse! Here are your options:\n");
-    // Nurse-specific options here
+
+    printf("A)Patient\n");
+    printf("B) Bills\n");
+    scanf("%d", &select);
+
+
+ 
+    char choice;
+    char searchCriteria[100];
+    char healthCardNumber[20];
+
+    do {
+        printf("\nHospital Management System\n");
+        printf("A) Add Patient\n");
+        printf("B) Find Patient - 1)Find, 2)Find and Edit, 3)Find and delete\n");
+        printf("C) Print Patients (Sorted by Last Name)\n");
+        printf("E) Exit\n");
+        printf("Select an option: ");
+        scanf(" %c", &choice);
+
+        switch (choice) {
+        case 'A':
+        case 'a':
+        { PATIENT patient;
+
+        printf("Enter patient's first name: ");
+        scanf("%99s", patient.firstName);
+        clearInputBuffer(); // Clear the buffer after using scanf
+
+        printf("Enter patient's last name: ");
+        scanf("%99s", patient.lastName);
+        clearInputBuffer();
+
+        printf("Enter DOB (YYYY-MM-DD): ");
+        scanf("%10s", patient.dob);
+        clearInputBuffer();
+
+        // Use fgets for multi-word input fields
+        printf("Enter medical history: ");
+        fgets(patient.medicalHistory, sizeof(patient.medicalHistory), stdin);
+        patient.medicalHistory[strcspn(patient.medicalHistory, "\n")] = 0; // Remove newline character
+
+        printf("Enter contact info: ");
+        scanf("%99s", patient.contactInfo);
+        clearInputBuffer();
+
+        printf("Enter health card number: ");
+        scanf("%19s", patient.healthCardNumber);
+        clearInputBuffer();
+
+        printf("Enter family doctor's name: ");
+        fgets(patient.familyDoctorName, sizeof(patient.familyDoctorName), stdin);
+        patient.familyDoctorName[strcspn(patient.familyDoctorName, "\n")] = 0;
+
+        printf("Enter address: ");
+        fgets(patient.address, sizeof(patient.address), stdin);
+        patient.address[strcspn(patient.address, "\n")] = 0;
+
+        printf("Enter gender: ");
+        fgets(patient.gender, sizeof(patient.gender), stdin);
+        patient.gender[strcspn(patient.gender, "\n")] = 0;
+
+        addPatient(patient);
+        }
+        break;
+        case 'B':
+        case 'b':
+            printf("\nFind Options:\n");
+            printf("1) Find\n");
+            printf("2) Find and Edit\n");
+            printf("3) Find and Delete\n");
+            printf("Enter choice: ");
+            int choiceTwo;
+            scanf("%d", &choiceTwo);
+            switch (choiceTwo) {
+            case 1:
+                printf("Enter search criteria (name or health card number): ");
+                scanf("%s", searchCriteria);
+                findPatient(searchCriteria);
+                break;
+            case 2:
+
+                printf("Enter the health card number of the patient you wish to edit: ");
+                clearInputBuffer(); // Clear the input buffer to ensure clean input for fgets
+                fgets(healthCardNumber, sizeof(healthCardNumber), stdin);
+                healthCardNumber[strcspn(healthCardNumber, "\n")] = 0; // Remove the newline character
+
+                displayEditMenu(healthCardNumber);
+                break;
+            case 3:
+                printf("Enter health card number of the patient to delete: ");
+                scanf("%s", healthCardNumber);
+                deletePatient(healthCardNumber);
+                break;
+            default:
+                printf("Invalid choice. Please enter a valid option.\n");
+                break;
+            }
+            break;
+        case 'C':
+        case 'c':
+            printf("\nPatients Sorted by Last Name:\n");
+            printPatientsSorted("lastName");
+            break;
+       
+            break;
+        case 'E':
+        case 'e':
+
+            printf("Exiting...\n");
+            break;
+
+        default:
+            printf("Invalid choice. Please enter a valid option.\n");
+        }
+    } while (choice != 'E' && choice != 'E');
+    
 }

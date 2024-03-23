@@ -131,6 +131,7 @@
     <ClCompile Include="Doctor.c" />
     <ClCompile Include="EList.c" />
     <ClCompile Include="Employee.c" />
+    <ClCompile Include="Labs.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="Nurse.c" />
     <ClCompile Include="Patients.c" />
@@ -140,6 +141,7 @@
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="EList.h" />
     <ClInclude Include="Employee.h" />
+    <ClInclude Include="Labs.h" />
     <ClInclude Include="Nurse.h" />
     <ClInclude Include="Patients.h" />
   </ItemGroup>

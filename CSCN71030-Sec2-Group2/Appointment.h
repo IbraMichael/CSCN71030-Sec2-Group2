@@ -13,9 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/// <summary>
-/// Represents an event that contains the required information for a calendar. Written By: Brooke Cronin
-/// </summary>
+
 typedef struct appointment
 {
     char name[PatientName];
@@ -28,4 +26,5 @@ typedef struct appointment
 
 void saveAppointmentToFile();
 void LoadToSchedule();
+void printAppointmentSorted(const char* sortBy);
 
