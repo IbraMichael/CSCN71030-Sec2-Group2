@@ -8,19 +8,23 @@
 #include<stdlib.h>
 #include <string.h>
 
-void CreateDoctor(int id, char name, char email[50]) {
+void orderLabTest(int patientId[], char testName[], int testDate[]) {
 	return 0;
+
+};
+
+void prescribeMedication(int patientId, char medicationName[], char dosage[], char frquency[], char duration[]) {
+	return 0;
+
+};
+
+void patientDiagnosis(int patientId, char symptoms, int numSymptoms, char diagnosis, int numDiagnosis, char treatment, int numTreatment) {
+	return 0;
+
+};
+
+void scheduleAppointment(int patientId, char date[], int providerId, char type[]) {
+	return 0;
+
 }
 
-void addPatient(int id, char name[], char address[], int age) {
-	return 0;
-}
-void addPatientHistory(int id, char symptom[200], int numSymptoms, char diagnosis[200], int prescription[200], int numPrescriptions) {
-	return 0;
-}
-void displayPatient(int id) {
-	return 0;
-}
-void displayPatientHistory(int id) {
-	return 0;
-}
