@@ -24,6 +24,12 @@
     <ClCompile Include="Patients.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Employee.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Nurse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Doctor.h">
@@ -39,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Patients.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Nurse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
