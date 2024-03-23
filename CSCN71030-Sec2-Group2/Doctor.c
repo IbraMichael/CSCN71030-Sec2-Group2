@@ -8,6 +8,10 @@
 #include<stdlib.h>
 #include <string.h>
 
+void CreateDoctor(int id, char name, char email[50]) {
+	return 0;
+}
+
 void addPatient(int id, char name[], char address[], int age) {
 	return 0;
 }
