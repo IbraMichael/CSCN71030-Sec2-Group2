@@ -1,15 +1,18 @@
 #include "EList.h"
 
+//takes employee and returns node with allocated memory
 ENODE* createENode(EMPLOYEE e) {
 	ENODE* e1 = (ENODE*)malloc(sizeof(ENODE));
 	e1->e = e;
 	e1->next = NULL;
 	return e1;
 }
+//inserts node to existing list
 void insertENode(ENODE** head, ENODE* newNode) {
 	newNode->next = head;
 	head = newNode;
 }
+//returns node with specified username
 ENODE* searchENode(ENODE* head, char* username) {
 	ENODE* current = head;
 	while (current != NULL) {
@@ -20,6 +23,7 @@ ENODE* searchENode(ENODE* head, char* username) {
 	printf("Couldn't find employee with username %s\n", username);
 	return NULL;
 }
+//deletes node while preserving list functionality
 void deleteENode(ENODE* toDelete, ENODE** head) {
 	ENODE* current = head;
 	if (toDelete == head) {
@@ -37,6 +41,7 @@ void deleteENode(ENODE* toDelete, ENODE** head) {
 		current = current->next;
 	}
 }
+//saves entire list to file
 void saveListToFile(ENODE* head, char* filename) {
 	// Save the entire task list to a binary file
 	ENODE *current = head;
@@ -46,7 +51,7 @@ void saveListToFile(ENODE* head, char* filename) {
 		printf("Error opening file for writing\n");
 		return false;
 	}
-	// Write each task to the file
+	// Write each employee to the file
 	while (current != NULL) {
 		fwrite(&(current->e), sizeof(EMPLOYEE), 1, file);
 		current = current->next;
@@ -54,8 +59,9 @@ void saveListToFile(ENODE* head, char* filename) {
 
 	fclose(file);
 }
-void loadListFromFile(char* filename) {
-	// Load a task list from a binary file
+//returns entire list from file
+ENODE* loadListFromFile(char* filename) {
+	// Load an employee list from a binary file
 	FILE* file = fopen(filename, "rb");
 	if (file == NULL) {
 		printf("Error opening file to read");
@@ -65,7 +71,7 @@ void loadListFromFile(char* filename) {
 	ENODE* list = NULL;
 	ENODE* current = NULL;
 	EMPLOYEE temp = { 0 };
-	// Read each task from the file and create a new node for it in the list
+	// Read each employee from the file and create a new node for it in the list
 	while (fread(&temp, sizeof(EMPLOYEE), 1, file) == 1) {
 		ENODE* new = (ENODE*)malloc(sizeof(ENODE));
 		if (new == NULL) {
