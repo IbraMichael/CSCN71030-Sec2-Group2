@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Appointmnt.c" />
+    <ClCompile Include="Diagnosis.c" />
     <ClCompile Include="Doctor.c" />
     <ClCompile Include="EList.c" />
     <ClCompile Include="Employee.c" />
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Appointment.h" />
+    <ClInclude Include="Diagnosis.h" />
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="EList.h" />
     <ClInclude Include="Employee.h" />

@@ -33,6 +33,18 @@
     <ClCompile Include="EList.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Appointmnt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Labs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Prescription.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Diagnosis.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Doctor.h">
@@ -48,6 +60,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Nurse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Appointment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Labs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Prescription.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Diagnosis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
