@@ -12,11 +12,12 @@ typedef struct diagnosis
     char numSymptoms[100];
     char diagnosis[500];
     char numDiagnosis[1000];
-    char treatment[2000];
-    char numTreatment[1500];
+    
 
 } Diagnosis;
 
 // void patientDiagnosis(int patientId, char symptoms, int numSymptoms, char diagnosis, int numDiagnosis, char treatment, int numTreatment);
 void saveDiagnosisToFile();
 void LoadToSchedule();
+void addDiagnosis(const Diagnosis diagnosis);
+void printDiagnosisSorted(const char* sortBy);
