@@ -1,12 +1,16 @@
 #include "Labs.h"
 
 
-#define MAX_LABS 50
-LAB lab [MAX_LABS];
+
+#define MAX_LABS 500
+LAB test[MAX_LABS];
 int labCount = 0;
 
+
+
+
 // Helper functions
-int compareNames(const void* a, const void* b) {
+int compareLabNames(const void* a, const void* b) {
     const LAB* pa = (const LAB*)a;
     const LAB* pb = (const LAB*)b;
     return strcmp(pa->name, pb->name);
@@ -20,9 +24,9 @@ void saveLabToFile()
         return;
     }
     for (int i = 0; i < labCount; ++i) {
-        fprintf(file, "%s,%s,%s,%s,%s,%s,%s,%s,%s\n",
-            lab[i].name, lab[i].cost, lab[i].time,
-            lab[i].category);
+        fprintf(file, "%s,%s,%s,%s\n",
+            test[i].name, test[i].cost, test[i].time,
+            test[i].category);
     }
     fclose(file);
 
@@ -37,9 +41,9 @@ void LoadLabs()
         return;
     }
     labCount = 0;
-    while (fscanf(file, "%99[^,],%99[^,],%10[^,],%1023[^,],%99[^,],%19[^,],%99[^,],%99[^,],%9[^\n]\n",
-        lab[labCount].name, lab[labCount].cost,
-        lab[labCount].time, lab[labCount].category) == 9) {
+    while (fscanf(file, "%99[^,],%99[^,],%99[^,],%99[^\n]\n",
+        test[labCount].name, test[labCount].cost,
+        test[labCount].time, test[labCount].category) == 4) {
         labCount++;
         if (labCount >= MAX_LABS) {
             printf("Reached max capacity. Some labs may not be loaded.\n");
@@ -51,19 +55,28 @@ void LoadLabs()
 
 }
 
+void addLabs(const LAB lab) {
+    if (labCount >= MAX_LABS) {
+        printf("Cannot add more labs. Storage full.\n");
+        return;
+    }
+    test[labCount++] = lab;
+    saveLabToFile();
+}
+
 void printLabsSorted(const char* sortBy) {
     // Load labs from file
     LoadLabs();
 
     // Sort labs by name
-    qsort(lab, labCount, sizeof(LAB), compareNames);
+    qsort(labs, labCount, sizeof(LAB), compareLabNames);
 
     for (int i = 0; i < labCount; ++i) {
         printf("\---------------------------------------------------\n");
-        printf("Name: %s %s\n", lab[i].name);
-        printf("Cost: %s\n", lab[i].cost);
-        printf("Time: %s\n", lab[i].time);
-        printf("Category: %s\n", lab[i].category);
+        printf("Name: %s\n", test[i].name);
+        printf("Cost: $%s\n", test[i].cost);
+        printf("Time: %s\n", test[i].time);
+        printf("Category: %s\n", test[i].category);
         printf("---------------------------------------------------\n");
     }
 }

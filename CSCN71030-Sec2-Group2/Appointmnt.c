@@ -1,10 +1,12 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include"Appointment.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #define MAX_APPOINTMENTS 2000
 
-Appointment appointment[MAX_APPOINTMENTS];
+Appointment appointments[MAX_APPOINTMENTS];
 int appointmentCount = 0;
 
 // Helper functions
@@ -22,9 +24,9 @@ void saveAppointmentToFile() {
         return;
     }
     for (int i = 0; i < appointmentCount; ++i) {
-        fprintf(file, "%s,%s,%s,%s,%s,%s,%s,%s,%s\n",
-            appointment[i].name, appointment[i].description, appointment[i].time,
-            appointment[i].location, appointment[i].category);
+        fprintf(file, "%s,%s,%s,%s,%s,%s\n",
+            appointments[i].firstName, appointments[i].lastName, appointments[i].time, appointments[i].description,
+            appointments[i].location, appointments[i].category);
     }
     fclose(file);
 }
@@ -38,10 +40,10 @@ void LoadToSchedule()
         return;
     }
     appointmentCount = 0;
-    while (fscanf(file, "%99[^,],%99[^,],%10[^,],%1023[^,],%99[^,],%19[^,],%99[^,],%99[^,],%9[^\n]\n",
-        appointment[appointmentCount].name, appointment[appointmentCount].description,
-        appointment[appointmentCount].time, appointment[appointmentCount].location,
-        appointment[appointmentCount].category) == 9) {
+    while (fscanf(file, "%99[^,],%99[^,],%99[^,],%99[^,],%99[^,],%99[^\n]\n",
+        appointments[appointmentCount].firstName, appointments[appointmentCount].lastName, appointments[appointmentCount].time,
+        appointments[appointmentCount].description, appointments[appointmentCount].location,
+        appointments[appointmentCount].category) == 6) {
         appointmentCount++;
         if (appointmentCount >= MAX_APPOINTMENTS) {
             printf("Reached max capacity. Some appointment may not be loaded.\n");
@@ -51,21 +53,31 @@ void LoadToSchedule()
     fclose(file);
 }
 
-void printAppointmentSorted(const char* sortBy)
-{
+void addAppointment(const Appointment appointment) {
+    if (appointmentCount >= MAX_APPOINTMENTS) {
+        printf("Cannot add more labs. Storage full.\n");
+        return;
+    }
+    appointments[appointmentCount++] = appointment;
+    saveAppointmentToFile();
+}
+
+
+
+void printAppointmentSorted(const char* sortBy) {
     // Load labs from file
     LoadToSchedule();
 
-    // Sort appoinments by time
-    qsort(appointment, appointmentCount, sizeof(Appointment), compareTime);
+    // Assuming compareTime is correctly implemented elsewhere.
+  qsort(appointments, appointmentCount, sizeof(Appointment), compareTime);
 
     for (int i = 0; i < appointmentCount; ++i) {
-        printf("\---------------------------------------------------\n");
-        printf("Patient Name: %s %s\n", appointment[i].name);
-        printf("Description: %s\n", appointment[i].description);
-        printf("Time: %s\n", appointment[i].time);
-        printf("Location: %s\n", appointment[i].location);
-        printf("Category: %s\n", appointment[i].category);
+        printf("---------------------------------------------------\n");
+        printf("Name: %s %s\n", appointments[i].firstName, appointments[i].lastName);
+        printf("Time: %s\n", appointments[i].time);
+        printf("Description: %s\n", appointments[i].description);
+        printf("Location: %s\n", appointments[i].location);
+        printf("Category: %s\n", appointments[i].category);
         printf("---------------------------------------------------\n");
     }
 }

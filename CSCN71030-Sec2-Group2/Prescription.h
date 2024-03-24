@@ -8,7 +8,7 @@
 
 typedef struct prescription
 {
-    int patientId [20];
+    char patientId[80];
     char medicationName[80];
     char dosage[60];
     char frequency[1000];
@@ -18,4 +18,7 @@ typedef struct prescription
 
 //void Prescription(int patientId, char medicationName[], char dosage[], char frquency[], char quantity[]);
 void savePrescriptionToFile();
-void LoadToSchedule();
+void addPrescriptionToFile(const Prescription prescription);
+void Loadprescription();
+void printPrescrptionSorted(const char* sortBy);
+

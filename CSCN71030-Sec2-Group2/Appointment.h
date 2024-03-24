@@ -16,7 +16,8 @@
 
 typedef struct appointment
 {
-    char name[PatientName];
+    char firstName[PatientName];
+    char lastName[PatientName];
     char description[MAX_DESCRIPTION_LENGTH];
     char time[TIME_IN_STRING_LENGTH];
     char location[MAX_LOCATION_LENGTH];
@@ -26,5 +27,6 @@ typedef struct appointment
 
 void saveAppointmentToFile();
 void LoadToSchedule();
+void addAppointment(const Appointment appointment);
 void printAppointmentSorted(const char* sortBy);
 
