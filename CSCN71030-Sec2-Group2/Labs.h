@@ -6,13 +6,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+//Define patient structures include arrays or strings
 #define labName 100
 #define labCost 100
 #define labTime 50
 #define labCategory 50
 
 
-
+// Define lab with typedef structure
 typedef struct lab
 {
     char name[labName];
@@ -22,6 +23,7 @@ typedef struct lab
 
 } LAB;
 
+// Functions for patient lab test
 void saveLabToFile();
 void addLabs(const LAB lab);
 void LoadLabs();

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Define your data type using typedef sturct
 typedef struct prescription
 {
     char patientId[80];
@@ -16,9 +17,9 @@ typedef struct prescription
 
 } Prescription;
 
-//void Prescription(int patientId, char medicationName[], char dosage[], char frquency[], char quantity[]);
+// Functions for medical prescription
 void savePrescriptionToFile();
 void addPrescriptionToFile(const Prescription prescription);
-void Loadprescription();
+void LoadPrescription();
 void printPrescrptionSorted(const char* sortBy);
 

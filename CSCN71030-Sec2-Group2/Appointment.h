@@ -1,6 +1,6 @@
 #pragma once
 
-
+// Definignvariables
 #define PatientName 100
 #define MAX_DESCRIPTION_LENGTH 200
 #define MAX_LOCATION_LENGTH 100
@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+// Define patient appointments using typedef struct
 typedef struct appointment
 {
     char firstName[PatientName];
@@ -25,6 +25,7 @@ typedef struct appointment
 
 } Appointment;
 
+// Functions to display or implement patient appointments
 void saveAppointmentToFile();
 void LoadToSchedule();
 void addAppointment(const Appointment appointment);

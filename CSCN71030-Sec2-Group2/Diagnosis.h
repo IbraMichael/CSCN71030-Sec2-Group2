@@ -5,19 +5,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct diagnosis
+// Defining structures using typedef  struct data type
+typedef struct diagnostic
 {
     int patientId[20];
-    char symptoms[80];
+    char Symptoms[80];
     char numSymptoms[100];
-    char diagnosis[500];
-    char numDiagnosis[1000];
+    char diagnostic[500];
+    char numDiagnostic[1000];
     
 
-} Diagnosis;
+} Diagnostic;
 
-// void patientDiagnosis(int patientId, char symptoms, int numSymptoms, char diagnosis, int numDiagnosis, char treatment, int numTreatment);
-void saveDiagnosisToFile();
-void LoadToSchedule();
-void addDiagnosis(const Diagnosis diagnosis);
-void printDiagnosisSorted(const char* sortBy);
+// Functions for patient diagnosis
+void saveDiagnosticToFile();
+void LoadDiagnostic();
+void addDiagnostic(const Diagnostic diagnostic);
+void printDiagnosticSorted(const char* sortBy);
