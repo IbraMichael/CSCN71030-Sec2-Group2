@@ -3,26 +3,26 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 
-#define MAX_PATIENTS 500
-#define MAX_HISTORY 200
+#define MAX_NAME 30
+#define MAX_ID 20
+#define MAX_SPECIALIZATION_LENGTH 60
+#define MAX_DEPARTMENT 100
 
-typedef struct {
-	int PatientId;
-	char Name[40];
-	char address[100];
-	char symptoms[MAX_HISTORY];
-	int numSynptoms;
-	char diagnosis[MAX_HISTORY];
-	int numDiagnosis;
-	char prescriptions[MAX_HISTORY];
-	int numPrescriptions;
-	char testName[100];
-	int testDate[30];
-	char date[20];
-	int providerId;
-	char type[50];
-
+// Defining the doctor structure
+typedef struct doctor{
+	int Id[MAX_ID];
+	char Name[MAX_NAME];
+	char Specialization[MAX_SPECIALIZATION_LENGTH];
+	
 } Doctor;
+
+// functions for 
+void AddDoctor(const Doctor doctor);
+void saveDoctorToFile();
+void LoadDoctor();
+void printDoctorSorted(const char* sortBy);
+void SearchDoctorByName(char* Name);
+void SearchDoctorBySpecialization(char* specialization);
 
 
 

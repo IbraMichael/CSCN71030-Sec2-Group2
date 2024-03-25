@@ -41,8 +41,9 @@ void saveAppointmentToFile()
     fclose(file);
 }
 
+
 // Load patient scheduled appintments to and from file
-void LoadToSchedule()
+void LoadAppointments()
 {
     FILE* file = fopen("appointment.txt", "r");
     if (!file) 
@@ -82,7 +83,7 @@ void addAppointment(const Appointment appointment)
 void printAppointmentSorted(const char* sortBy) 
 {
     // Load labs from file
-    LoadToSchedule();
+    LoadAppointments();
 
     // Assuming compareTime is correctly implemented elsewhere.
   qsort(appointments, appointmentCount, sizeof(Appointment), compareTime);
