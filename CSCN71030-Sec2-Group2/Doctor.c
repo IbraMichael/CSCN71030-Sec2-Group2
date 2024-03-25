@@ -4,10 +4,8 @@
 // Conpiling Doctor ()
 // Evalyne Juan
 
-#include <stdio.h>
-#include<stdlib.h>
-#include <string.h>
 #include "Doctor.h"
+#define _CRT_SECURE_NO_WARNINGS
 
 // Define your doctor struct
 #define MAX_DOCTORS 200
