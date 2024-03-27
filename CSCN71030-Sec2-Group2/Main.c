@@ -4,9 +4,7 @@
 #include <time.h>
 #include "Patients.h"
 
-
-
-
+#define FILENAME "empdata.txt"
 
 // Function declarations
 int authenticateUser(const char* username, const char* password);
