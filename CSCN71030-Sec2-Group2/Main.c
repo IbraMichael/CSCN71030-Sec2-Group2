@@ -8,8 +8,10 @@
 #include "Labs.h"
 #include "Prescription.h"
 #include "Nurse.h"
+#include "EList.h"
 
-
+#define ADMINPASS "password"
+#define ADMINUSER "admin"
 #define FILENAME "empdata.txt"
 
 // Function declarations
@@ -17,9 +19,16 @@ int authenticateUser(const char* username, const char* password);
 void showDoctorDashboard();
 void showNurseDashboard();
 void showBillingMenu();
-
+void showAdminDashboard();
 
 int main() {
+    ENODE* head = loadListFromFile(FILENAME);
+    if (head == NULL) {
+        showAdminDashboard();
+        return 0;
+    }
+
+
     char* months[] = {
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
@@ -551,5 +560,7 @@ void showNurseDashboard()
     }
 }
 
-
+void showAdminDashboard() {
+    printf("Admin Dashboard\n");
+}
 

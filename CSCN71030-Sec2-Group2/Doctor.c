@@ -30,7 +30,7 @@ void AddDoctor(const Doctor doctor)
         return;
     }
     doctors[doctorCount++] = doctor;
-    savedDoctorToFile();
+    saveDoctorToFile();
 }
 
 //

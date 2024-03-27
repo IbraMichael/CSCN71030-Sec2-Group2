@@ -68,7 +68,7 @@ void addDiagnostic(const Diagnostic diagnostic) {
         return;
     }
     diagnostics[diagnosticCount++] = diagnostic;
-    savediagnosticToFile();
+    saveDiagnosticToFile();
 }
 
 
