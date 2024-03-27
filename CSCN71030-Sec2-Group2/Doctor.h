@@ -1,46 +1,34 @@
 #pragma once
-#include"Doctor.c"
 
-#define MAX_PATIENTS 500
-#define MAX_HISTORY 200
+#define _CRT_SECURE_NO_WARNINGS
 
-// Define a struct for a doctor
-struct Doctor {
-	char name[80];
-	int id;
-	char email[50];
+#include <stdio.h>
+#include<stdlib.h>
+#include <string.h>
 
 
+#define MAX_NAME 30
+#define MAX_ID 20
+#define MAX_SPECIALIZATION_LENGTH 60
+#define MAX_DEPARTMENT 100
 
-}; Doctor;
+// Defining the doctor structure
+typedef struct doctor{
+	int Id[MAX_ID];
+	char Name[MAX_NAME];
+	char Specialization[MAX_SPECIALIZATION_LENGTH];
+	
+} Doctor;
 
-struct Patients {
-	char Name[40];
-	char address[300];
-	int id;
+// functions for 
+void AddDoctor(const Doctor doctor);
+void saveDoctorToFile();
+void LoadDoctor();
+void printDoctorSorted(const char* sortBy);
+void SearchDoctorByName(char* Name);
+void SearchDoctorBySpecialization(char* specialization);
 
-};
 
-// Structure to represent patient history
-struct History {
-	int patientID;
-	char symptoms[MAX_HISTORY][200];
-	int numSynptoms;
-	char diagnosis[MAX_HISTORY][200];
-	int numDiagnosis;
-	char prescriptions[MAX_HISTORY][200];
-	int numPrescriptions;
-};
 
-// Arrays to store patients and their histories
-struct Patient patients[MAX_PATIENTS];
-struct History history[MAX_PATIENTS];
-
-// Functions
-void CreateDoctor(int id, char name, char email[50]) {}
-void addPatient(int id, char name[], char address[], int age) {}
-void addPatientHistory(int id, char symptom[200], int numSymptoms, char diagnosis[200], int prescription[200], int numPrescriptions){}
-void displayPatient(int id){}
-void displayPatientHistory(int id){}
 
 

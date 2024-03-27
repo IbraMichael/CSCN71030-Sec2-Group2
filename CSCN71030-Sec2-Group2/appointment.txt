@@ -1,0 +1,3 @@
+Michael,Ibrahim,2024-03-24 12:30,Checkup,room1b,checkup
+Bob,Duncun,2024-03-24 12:55,Checkup,room111a,checkup
+tod,tod,2024-03-24 11:55,foot-surgery,OR6,surgery

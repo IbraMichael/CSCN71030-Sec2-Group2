@@ -1,0 +1,3 @@
+1234567,test,1000g,1-per-day
+0000000,Advil,400mg,1-per-8h
+9999999,Lactid,100mg,when-eating
