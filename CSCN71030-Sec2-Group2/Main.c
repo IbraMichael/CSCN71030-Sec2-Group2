@@ -667,13 +667,16 @@ void showAdminDashboard(ENODE** head) {
             break;
         }
         case 4:
-            printf("Exiting...");
-            return;
+            printf("Exiting...\n\n");
+            main();
+            break;
         default:
             printf("Invalid Selection\n");
             break;
         }
     } while (choice2 != 4);
     return;
+
+   
 }
 
