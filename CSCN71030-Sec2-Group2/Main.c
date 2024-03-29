@@ -12,22 +12,32 @@
 
 #define ADMINPASS "password"
 #define ADMINUSER "admin"
-#define FILENAME "empdata.txt"
 
 // Function declarations
-int authenticateUser(const char* username, const char* password);
+int authenticateUser(const char* username, const char* password, ENODE* head);
 void showDoctorDashboard();
 void showNurseDashboard();
 void showBillingMenu();
-void showAdminDashboard();
+void showAdminDashboard(ENODE** head);
 
 int main() {
-    ENODE* head = loadListFromFile(FILENAME);
-    if (head == NULL) {
-        showAdminDashboard();
-        return 0;
-    }
+    
+    ENODE* head = NULL;
+    const char* filename = "empdata.txt";
+    FILE* file = fopen(filename, "r");
 
+    if (file != NULL) {
+        head = loadList(file);
+        fclose(file); // Close the file after checking
+    }
+    else {
+        printf("File doesn't exist.\n");
+        showAdminDashboard(&head);
+        file = fopen(filename, "w");
+        saveList(file, head);
+        fclose(file);
+        return;
+    }
 
     char* months[] = {
         "January", "February", "March", "April", "May", "June",
@@ -59,13 +69,13 @@ int main() {
     printf("\t\t\t------------------------------------------------------------\n");
     printf("\n\n");
     printf("Enter username: ");
-    scanf("%s", username);
+    scanf("%s", &username);
 
     printf("Enter password: ");
-    scanf("%s", password);
+    scanf("%s", &password);
 
     // Authenticate the user
-    loginResult = authenticateUser(username, password);
+    loginResult = authenticateUser(username, password, head);
 
     // Check login result and show the respective dashboard
     switch (loginResult) {
@@ -75,21 +85,33 @@ int main() {
     case 2:
         showNurseDashboard();
         break;
+    case 3:
+        showAdminDashboard(&head);
     default:
         printf("Invalid login. Please try again.\n");
         break;
     }
-
+    file = fopen(filename, "w");
+    saveList(file, head);
+    fclose(file);
+    deleteList(head);
+    
     return 0;
 }
 
 // Function to authenticate users
-int authenticateUser(const char* username, const char* password) {
-    if (strcmp(username, "doctor") == 0 && strcmp(password, "docpass") == 0) {
-        return 1; // Doctor
-    }
-    else if (strcmp(username, "nurse") == 0 && strcmp(password, "nursepass") == 0) {
-        return 2; // Nurse
+int authenticateUser(const char* username, const char* password, ENODE* head) {
+    ENODE* current = head;
+    if (strcmp(username, ADMINUSER) == 0 && strcmp(password, ADMINPASS) == 0)
+        return 3;
+    while (current != NULL) {
+        if (strcmp(current->username, username) == 0 && strcmp(current->password, password) == 0) {
+            if (current->r == 0)
+                return 1; // Authentication successful
+            if (current->r == 1)
+                return 2;
+        }
+        current = current->next;
     }
     return 0; // Authentication failed
 }
@@ -541,7 +563,7 @@ void showNurseDashboard()
                 printf("Invalid choice. Please enter a valid option.\n");
                 break;
             }
-        } while (choice != 'E' && choice != 'E');
+        } while (choice != 'e' && choice != 'E');
 
     case 2:
         showBillingMenu();
@@ -560,7 +582,98 @@ void showNurseDashboard()
     }
 }
 
-void showAdminDashboard() {
-    printf("Admin Dashboard\n");
+void showAdminDashboard(ENODE** head) {
+    int choice2;
+    do {
+        printf("Admin Dashboard\n1: Add doctor\n2: Add nurse\n3: Delete Employee\n4: Exit\nMake a selection: ");
+        scanf(" %d", &choice2);
+       
+        switch (choice2) {
+        case 1: {
+            char name[100];
+            char username[100];
+            char password[100];
+
+            printf("Enter the doctor's name: ");
+            scanf("%s", name);
+            printf("Enter the doctor's username: ");
+            scanf("%s", username);
+            printf("Enter the doctor's password: ");
+            scanf("%s", password);
+
+            ENODE* e = createNode(username, password, name, 0);
+
+            if (*head == NULL)
+                *head = e;
+            else {
+                e->next = *head;
+                *head = e;
+            }
+
+            break;
+        }
+        case 2: {
+            char name[100];
+            char username[100];
+            char password[100];
+
+            printf("Enter the nurse's name: ");
+            scanf("%s", name);
+            printf("Enter the nurse's username: ");
+            scanf("%s", username);
+            printf("Enter the nurse's password: ");
+            scanf("%s", password);
+
+            ENODE* e = createNode(username, password, name, 1);
+
+            if (*head == NULL)
+                *head = e;
+            else {
+                e->next = *head;
+                *head = e;
+            }
+
+            break;
+        }
+
+        case 3: {
+            char username[100]; // Ensure username is properly initialized and allocated
+            printf("Enter employee's username: \n");
+            scanf("%s", username);
+            ENODE* current = *head;
+            ENODE* prev = NULL;
+
+            while (current != NULL) {
+                // Use strcmp instead of strncmp
+                if (strcmp(current->username, username) == 0) {
+                    // Node found, delete it
+                    if (prev == NULL) {
+                        // If the node to be deleted is the head
+                        *head = current->next;
+                    }
+                    else {
+                        // If the node to be deleted is not the head
+                        prev->next = current->next;
+                    }
+                    free(current); // Free memory for the node
+                    printf("Employee %s deleted\n", username);
+                    break;
+                }
+                prev = current;
+                current = current->next;
+            }
+
+            
+            break;
+        }
+        case 4:
+            printf("Exiting...");
+            return;
+        default:
+            printf("Invalid Selection\n");
+            break;
+        }
+    } while (choice2 != 4);
+    return;
 }
 

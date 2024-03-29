@@ -1,14 +1,23 @@
 #pragma once
-#include "Employee.h"
+
+typedef enum role {
+    DOCTOR_ROLE,
+    NURSE_ROLE
+} ROLE;
 
 typedef struct Enode {
-	EMPLOYEE e;
-	struct Enode* next;
-}ENODE;
+    char username[100];
+    char password[100];
+    char name[100];
+    ROLE r;
+    struct Enode* next;
+} ENODE;
 
-ENODE* createENode(EMPLOYEE e);
-void insertENode(ENODE** head, ENODE* newNode);
-ENODE* searchENode(ENODE* head, char* username);
-void deleteENode(ENODE* toDelete, ENODE** head);
-void saveListToFile(ENODE* head, char* filename);
-ENODE* loadListFromFile(char* filename);
+ENODE* createNode(char* username, char* password, char* name, ROLE role);
+void saveList(FILE* file, ENODE* head);
+ENODE* loadList(FILE* file);
+void deleteNode(ENODE* head, char* username);
+void deleteList(ENODE* head);
+void printList(ENODE* head);
+ENODE* searchNode(ENODE* head, char* username);
+void insertNode(ENODE** head, ENODE* newNode);

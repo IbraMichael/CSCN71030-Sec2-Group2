@@ -1,101 +1,128 @@
-#include "EList.h"
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include "EList.h"
 
-//takes employee and returns node with allocated memory
-ENODE* createENode(EMPLOYEE e) {
-	ENODE* e1 = (ENODE*)malloc(sizeof(ENODE));
-	e1->e = e;
-	e1->next = NULL;
-	return e1;
+// Function to create a new node
+ENODE* createNode(char* username, char* password, char* name, int role) {
+    ENODE* newNode = (ENODE*)malloc(sizeof(ENODE));
+    if (newNode == NULL) {
+        perror("Memory allocation failed");
+        exit(EXIT_FAILURE);
+    }
+    // Copy strings to the struct fields
+    strncpy(newNode->username, username, sizeof(newNode->username) - 1);
+    newNode->username[sizeof(newNode->username) - 1] = '\0'; // Ensure null-termination
+    strncpy(newNode->password, password, sizeof(newNode->password) - 1);
+    newNode->password[sizeof(newNode->password) - 1] = '\0'; // Ensure null-termination
+    strncpy(newNode->name, name, sizeof(newNode->name) - 1);
+    newNode->name[sizeof(newNode->name) - 1] = '\0'; // Ensure null-termination
+    newNode->r = role;
+    newNode->next = NULL;
+    return newNode;
 }
-//inserts node to existing list
-void insertENode(ENODE** head, ENODE* newNode) {
-	newNode->next = head;
-	head = newNode;
+
+
+// Function to save list to a text file
+void saveList(FILE* file, ENODE* head) {
+    ENODE* current = head;
+    while (current != NULL) {
+        fprintf(file, "%s %s %s %d\n", current->username, current->password, current->name, current->r);
+        current = current->next;
+    }
 }
-//returns node with specified username
-ENODE* searchENode(ENODE* head, char* username) {
-	ENODE* current = head;
-	while (current != NULL) {
-		if (current->e.username == username)
-			return current;
-		current = current->next;
-	}
-	printf("Couldn't find employee with username %s\n", username);
-	return NULL;
+
+// Function to load list from a text file
+ENODE* loadList(FILE* file) {
+    ENODE* head = NULL;
+    ENODE* current = NULL;
+    char username[100], password[100], name[100];
+    int role;
+
+    while (fscanf(file, "%s %s %s %d", username, password, name, &role) == 4) {
+        ROLE r = (ROLE)role;
+        ENODE* newNode = createNode(username, password, name, r);
+        if (head == NULL) {
+            head = newNode;
+            current = newNode;
+        }
+        else {
+            current->next = newNode;
+            current = current->next;
+        }
+    }
+    return head;
 }
-//deletes node while preserving list functionality
-void deleteENode(ENODE* toDelete, ENODE** head) {
-	ENODE* current = head;
-	if (toDelete == head) {
-		head = current->next;
-		free(current);
-		return;
-	}
-	ENODE* prev = head;
-	while (current != NULL) {
-		if (current == toDelete) {
-			prev->next = current->next;
-			free(current);
-		}
-		prev = current;
-		current = current->next;
-	}
+
+
+
+
+
+
+
+
+// Function to delete a node
+void deleteNode(ENODE** headPtr, char* username) {
+    ENODE* current = *headPtr;
+    ENODE* prev = NULL;
+
+    while (current != NULL) {
+        if (strncmp(current->username, username, sizeof(current->username)) == 0) {
+            // Node found, delete it
+            if (prev == NULL) {
+                // If the node to be deleted is the head
+                *headPtr = current->next;
+            }
+            else {
+                // If the node to be deleted is not the head
+                prev->next = current->next;
+            }
+            free(current); // Free memory for the node
+            return;
+        }
+        prev = current;
+        current = current->next;
+    }
 }
-//saves entire list to file
-void saveListToFile(ENODE* head, char* filename) {
-	// Save the entire task list to a binary file
-	ENODE *current = head;
 
-	FILE* file = fopen(filename, "wb");
-	if (file == NULL) {
-		printf("Error opening file for writing\n");
-		return false;
-	}
-	// Write each employee to the file
-	while (current != NULL) {
-		fwrite(&(current->e), sizeof(EMPLOYEE), 1, file);
-		current = current->next;
-	}
 
-	fclose(file);
+// Function to delete the entire list
+void deleteList(ENODE* head) {
+    ENODE* current = head;
+    while (current != NULL) {
+        ENODE* temp = current;
+        current = current->next;
+        free(temp); // Free memory for the node
+    }
 }
-//returns entire list from file
-ENODE* loadListFromFile(char* filename) {
-	// Load an employee list from a binary file
-	FILE* file;
-	if (file = fopen(filename, "rb")) {
-		if (file == NULL) {
-			printf("Error opening file to read");
-			exit(0);
-		}
 
-		ENODE* list = NULL;
-		ENODE* current = NULL;
-		EMPLOYEE temp = { 0 };
-		// Read each employee from the file and create a new node for it in the list
-		while (fread(&temp, sizeof(EMPLOYEE), 1, file) == 1) {
-			ENODE* new = (ENODE*)malloc(sizeof(ENODE));
-			if (new == NULL) {
-				printf("Memory Allocation Error");
-				exit(0);
-			}
-			new->e = temp;
-			new->next = NULL;
+// Function to print the list
+void printList(ENODE* head) {
+    ENODE* current = head;
+    while (current != NULL) {
+        printf("Username: %s, Password: %s, Name: %s, Role: %d\n", current->username, current->password, current->name, current->r);
+        current = current->next;
+    }
+}
 
-			if (list == NULL) {
-				list = new;
-				current = list;
-			}
-			else {
-				current->next = new;
-				current = current->next;
-			}
-		}
+// Function to search a node
+ENODE* searchNode(ENODE* head, char* username) {
+    ENODE* current = head;
+    while (current != NULL) {
+        if (strcmp(current->username, username) == 0) {
+            return current;
+        }
+        current = current->next;
+    }
+    return NULL; // Node not found
+}
 
-		fclose(file);
-		return list;
-	}
-	else printf("Admin must create file\n");
-	return NULL;
+void insertNode(ENODE** head, ENODE* newNode) {
+    if (*head == NULL)
+        *head = newNode;
+    else {
+        newNode->next = *head;
+        *head = newNode;
+    }
 }

@@ -14,7 +14,7 @@
 
 // Defining the doctor structure
 typedef struct doctor{
-	int Id[MAX_ID];
+	int Id;
 	char Name[MAX_NAME];
 	char Specialization[MAX_SPECIALIZATION_LENGTH];
 	
