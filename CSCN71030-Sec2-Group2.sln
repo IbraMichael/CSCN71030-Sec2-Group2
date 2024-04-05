@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSCN71030-Sec2-Group2", "CSCN71030-Sec2-Group2\CSCN71030-Sec2-Group2.vcxproj", "{A4E7AF1E-6E4E-4058-B12E-F3895A520710}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EList Tests", "EList Tests\EList Tests.vcxproj", "{AF272DFA-15D7-4E9E-8277-F326C00F13BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{A4E7AF1E-6E4E-4058-B12E-F3895A520710}.Release|x64.Build.0 = Release|x64
 		{A4E7AF1E-6E4E-4058-B12E-F3895A520710}.Release|x86.ActiveCfg = Release|Win32
 		{A4E7AF1E-6E4E-4058-B12E-F3895A520710}.Release|x86.Build.0 = Release|Win32
+		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Debug|x64.ActiveCfg = Debug|x64
+		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Debug|x64.Build.0 = Debug|x64
+		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Debug|x86.ActiveCfg = Debug|Win32
+		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Debug|x86.Build.0 = Debug|Win32
+		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Release|x64.ActiveCfg = Release|x64
+		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Release|x64.Build.0 = Release|x64
+		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Release|x86.ActiveCfg = Release|Win32
+		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

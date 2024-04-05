@@ -13,10 +13,10 @@ typedef struct Enode {
     struct Enode* next;
 } ENODE;
 
-ENODE* createNode(char* username, char* password, char* name, ROLE role);
+ENODE* createNode(char* username, char* password, char* name, int role);
 void saveList(FILE* file, ENODE* head);
 ENODE* loadList(FILE* file);
-void deleteNode(ENODE* head, char* username);
+void deleteNode(ENODE** headPtr, char* username);
 void deleteList(ENODE* head);
 void printList(ENODE* head);
 ENODE* searchNode(ENODE* head, char* username);
