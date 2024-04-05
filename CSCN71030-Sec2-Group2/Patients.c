@@ -1,13 +1,14 @@
+
 #include "Patients.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h> // For tolower function
-
-#define MAX_PATIENTS 100
+#include <ctype.h> 
 
 PATIENT patients[MAX_PATIENTS];
+
 int patientCount = 0;
+
 
 // Helper functions
 int compareNames(const void* a, const void* b) {
@@ -52,37 +53,38 @@ void loadPatientsFromFile() {
     }
     fclose(file);
 }
-
-void addPatient(const PATIENT patient) {
+char* addPatient(const PATIENT patient) {
     if (patientCount >= MAX_PATIENTS) {
-        printf("Cannot add more patients. Storage full.\n");
-        return;
+        return "Cannot add more patients. Storage full.";
     }
     patients[patientCount++] = patient;
     savePatientsToFile();
+    return "Patient added";
 }
 
-bool deletePatient(const char* healthCardNumber) {
-    int i;
-    for (i = 0; i < patientCount; i++) {
+int getPatientCount() {
+    return patientCount;
+}
+
+void setPatientCount(int count) {
+    patientCount = count;
+}
+
+char* deletePatient(const char* healthCardNumber) {
+    for (int i = 0; i < patientCount; i++) {
         if (strcmp(patients[i].healthCardNumber, healthCardNumber) == 0) {
-            break;
+            for (int j = i; j < patientCount - 1; j++) {
+                patients[j] = patients[j + 1];
+            }
+            patientCount--;
+            savePatientsToFile();
+            return "Patient deleted";
         }
     }
-    if (i == patientCount) { // Not found
-        return false;
-    }
-    for (; i < patientCount - 1; i++) {
-        patients[i] = patients[i + 1];
-    }
-    patientCount--;
-    savePatientsToFile();
-    return true;
-
-    printf("patient has been deleted!");
+    return "Patient not found";
 }
 
-void findPatient(const char* searchCriteria) {
+bool findPatient(const char* searchCriteria) {
     bool found = false;
     for (int i = 0; i < patientCount; i++) {
         if (strstr(patients[i].firstName, searchCriteria) || strstr(patients[i].lastName, searchCriteria) ||
@@ -96,7 +98,7 @@ void findPatient(const char* searchCriteria) {
     }
 }
 
-void findAndEditPatient(const char* healthCardNumber, char* newFirst, char* newLast, char* newDob, char* newHistory, char* newContact, char* newHealthCard, char* newDoctor, char* newAddress, char* newGender) {
+bool findAndEditPatient(const char* healthCardNumber, char* newFirst, char* newLast, char* newDob, char* newHistory, char* newContact, char* newHealthCard, char* newDoctor, char* newAddress, char* newGender) {
     for (int i = 0; i < patientCount; i++) {
         if (strcmp(patients[i].healthCardNumber, healthCardNumber) == 0) {
             if (newFirst[0] != '\0') strncpy(patients[i].firstName, newFirst, sizeof(patients[i].firstName) - 1);
@@ -202,7 +204,7 @@ void displayEditMenu(const char* healthCardNumber) {
 
 
 
-void printPatientsSorted(const char* sortBy) {
+bool printPatientsSorted(const char* sortBy) {
     // Load patients from file
     loadPatientsFromFile();
 
@@ -223,4 +225,3 @@ void printPatientsSorted(const char* sortBy) {
         printf("---------------------------------------------------\n");
     }
 }
-

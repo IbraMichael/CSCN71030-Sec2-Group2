@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSCN71030-Sec2-Group2", "CS
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EList Tests", "EList Tests\EList Tests.vcxproj", "{AF272DFA-15D7-4E9E-8277-F326C00F13BB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HosptialTestCase", "HosptialTestCase\HosptialTestCase.vcxproj", "{BBD2AFA3-0BF0-4E1D-90B4-C6BB5294E244}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Release|x64.Build.0 = Release|x64
 		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Release|x86.ActiveCfg = Release|Win32
 		{AF272DFA-15D7-4E9E-8277-F326C00F13BB}.Release|x86.Build.0 = Release|Win32
+		{BBD2AFA3-0BF0-4E1D-90B4-C6BB5294E244}.Debug|x64.ActiveCfg = Debug|x64
+		{BBD2AFA3-0BF0-4E1D-90B4-C6BB5294E244}.Debug|x64.Build.0 = Debug|x64
+		{BBD2AFA3-0BF0-4E1D-90B4-C6BB5294E244}.Debug|x86.ActiveCfg = Debug|Win32
+		{BBD2AFA3-0BF0-4E1D-90B4-C6BB5294E244}.Debug|x86.Build.0 = Debug|Win32
+		{BBD2AFA3-0BF0-4E1D-90B4-C6BB5294E244}.Release|x64.ActiveCfg = Release|x64
+		{BBD2AFA3-0BF0-4E1D-90B4-C6BB5294E244}.Release|x64.Build.0 = Release|x64
+		{BBD2AFA3-0BF0-4E1D-90B4-C6BB5294E244}.Release|x86.ActiveCfg = Release|Win32
+		{BBD2AFA3-0BF0-4E1D-90B4-C6BB5294E244}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
