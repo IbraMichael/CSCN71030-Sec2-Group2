@@ -63,12 +63,12 @@ ENODE* loadList(FILE* file) {
 
 
 // Function to delete a node
-void deleteNode(ENODE** headPtr, char* username) {
+void deleteNode(ENODE** headPtr, char username[100]) {
     ENODE* current = *headPtr;
     ENODE* prev = NULL;
 
     while (current != NULL) {
-        if (strncmp(current->username, username, sizeof(current->username)) == 0) {
+        if (strcmp(current->username, username) == 0) {
             // Node found, delete it
             if (prev == NULL) {
                 // If the node to be deleted is the head
