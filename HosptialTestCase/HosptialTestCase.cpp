@@ -218,328 +218,498 @@ namespace HosptialTestCase
 
 		TEST_METHOD(AddDoctorTest009)
 		{
-			Doctor doctor;
-			doctor[i].Id = 300098;
-			doctor[i].Name = "Joan Royales";
-			doctor[i].Specialization = "General Medicine";
-			doctor[i].Contact = "5194478999";
+			struct Doctor {
+				char* doctorId;
+				char* Name;
+				char* Specialization;
+				char* Contact;
+			};
+			char* AddDoctorTest009();
+			struct Doctor doctor;
+				doctor.doctorId = "300893";
+				doctor.Name = "Joan Royales";
+				doctor.Specialization = "General Medicine";
+				doctor.Contact = "5194478999";
 
-			char* expected = "A Doctor";
-			char* actual = AddDoctor(doctor);
+				char* expected = "A Doctor";
+				char* actual = AddDoctor(doctor);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
+
 		}
 		TEST_METHOD(SaveDoctorToFileTest010)
 		{
-			Doctor doctor;
-			doctor[i].Id = 30;
-			doctor[i].Name = "Joan Royales";
-			doctor[i].Specialization = "General Medicine";
-			doctor[i].Contact = "5194478999";
+			struct Doctor {
+				char* doctorId;
+				char* Name;
+				char* Specialization;
+				char* Contact;
+			};
+			char* SaveDoctorToFileTest010();
+				struct Doctor doctor;
+				doctor.doctorId = "300893";
+				doctor.Name = "Joan Royales";
+				doctor.Specialization = "General Medicine";
+				doctor.Contact = "5194478999";
 
-			char* expected = "A Doctor";
-			char* actual = AddDoctor(doctor);
+				char* expected = "A Doctor";
+				char* actual = SaveDoctorToFile(doctor);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 
 		}
 		TEST_METHOD(LoadDoctorTest011)
 		{
-			Doctor doctor;
-			doctor[i].Id = 30;
-			doctor[i].Name = "Joan Royales";
-			doctor[i].Specialization = "General Medicine";
-			doctor[i].Contact = "5194478999";
+			struct Doctor {
+				char* doctorId;
+				char* Name;
+				char* Specialization;
+				char* Contact;
+			};
+			char* LoadDoctorTest012();
+				struct Doctor doctor;
+				doctor.doctorId = "300893";
+				doctor.Name = "Joan Royales";
+				doctor.Specialization = "General Medicine";
+				doctor.Contact = "5194478999";
 
-			char* expected = "A Doctor";
-			char* actual = AddDoctor(doctor);
+				char* expected = "A Doctor";
+				char* actual = LoadDoctor(doctor);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
+
 		}
 		TEST_METHOD(PrintDoctorSortedTest012)
 		{
-			Doctor doctor;
-			doctor[i].Id = 30;
-			doctor[i].Name = "Joan Royales";
-			doctor[i].Specialization = "General Medicine";
-			doctor[i].Contact = "5194478999";
+			struct Doctor {
+				char* doctorId;
+				char* Name;
+				char* Specialization;
+				char* Contact;
+			};
+			char* PrintDoctorSortedTest012();
+				struct Doctor doctor;
+				doctor.doctorId = "300893";
+				doctor.Name = "Joan Royales";
+				doctor.Specialization = "General Medicine";
+				doctor.Contact = "5194478999";
 
-			char* expected = "A Doctor";
-			char* actual = AddDoctor(doctor);
+				char* expected = "A Doctor";
+				char* actual = PrintDoctorSorted(doctor);
 
-			std::string(expected, actual);
-
+				std::string(expected, actual);
 		}
 		TEST_METHOD(SearchDoctorByNameTest013)
 		{
-			Doctor doctor;
-			doctor[i].Id = 30;
-			doctor[i].Name = "Joan Royales";
-			doctor[i].Specialization = "General Medicine";
-			doctor[i].Contact = "5194478999";
+			struct Doctor {
+				char* doctorId;
+				char* Name;
+				char* Specialization;
+				char* Contact;
+			};
+			char* SearchDoctorByNameTest013();
+				struct Doctor doctor;
+				doctor.doctorId = "300893";
+				doctor.Name = "Joan Royales";
+				doctor.Specialization = "General Medicine";
+				doctor.Contact = "5194478999";
 
-			char* expected = "A Doctor";
-			char* actual = AddDoctor(doctor);
+				char* expected = "A Doctor";
+				char* actual = SearchDoctorByName(doctor);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 
 		}
 		TEST_METHOD(SearchDoctorBySpecializationTest014)
 		{
-			Doctor doctor;
-			doctor[i].Id = 30;
-			doctor[i].Name = "Joan Royales";
-			doctor[i].Specialization = "General Medicine";
-			doctor[i].Contact = "5194478999";
+			struct Doctor {
+				char* doctorId;
+				char* Name;
+				char* Specialization;
+				char* Contact;
+			};
+			char* SearchDoctorBySpecializationTest014();
+				struct Doctor doctor;
+				doctor.doctorId = "300893";
+				doctor.Name = "Joan Royales";
+				doctor.Specialization = "General Medicine";
+				doctor.Contact = "5194478999";
 
-			char* expected = "A Doctor";
-			char* actual = AddDoctor(doctor);
+				char* expected = "A Doctor";
+				char* actual = SearchDoctorBySpecialization(doctor);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 
 		}
 		TEST_METHOD(addAppointmentTest015)
 		{
-			Appointment appointment;
-			appointment[i].firstName = "Joan";
-			appointment[i].lastName = "Royales";
-			appointment[i].description = "Heart pacemaker";
-			appointment[i].time = "May 10th, 2024 at 12:00 PM";
-			appointment[i].location = "Mary General Hospital";
-			appointment[i].category = "Cardiologist";
+			struct Appointment {
+				char* firstName;
+				char* lastName;
+				char* description;
+				char* time;
+				char* location;
+				char* category;
+			};
+			char* addAppointmentTest015();
+				struct Appointment appointment;
+				appointment.firstName = "Joan";
+				appointment.lastName = "Royales";
+				appointment.description = "Heart pacemaker";
+				appointment.time = "May 10th, 2024 at 12:00 PM";
+				appointment.location = "Mary General Hospital";
+				appointment.category = "Cardiologist";
 
-			const char* expected = "A Doctor";
-			const char* actual = addAppointment(appointment);
+				const char* expected = "A Doctor";
+				const char* actual = addAppointment(appointment);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 		}
 		TEST_METHOD(saveAppointmentToFileTest016)
 		{
-			Appointment appointment;
-			appointment[i].firstName = "Joan";
-			appointment[i].lastName = "Royales";
-			appointment[i].description = "Heart pacemaker";
-			appointment[i].time = "May 10th, 2024 at 12:00 PM";
-			appointment[i].location = "Mary General Hospital";
-			appointment[i].category = "Cardiologist";
+			struct Appointment {
+				char* firstName;
+				char* lastName;
+				char* description;
+				char* time;
+				char* location;
+				char* category;
+			};
+			char* saveAppointmentToFileTest015();
+				struct Appointment appointment;
+				appointment.firstName = "Joan";
+				appointment.lastName = "Royales";
+				appointment.description = "Heart pacemaker";
+				appointment.time = "May 10th, 2024 at 12:00 PM";
+				appointment.location = "Mary General Hospital";
+				appointment.category = "Cardiologist";
 
-			const char* expected = "Scheduled";
-			const char* actual = saveAppointmentToFile(appointment);
+				const char* expected = "A Doctor";
+				const char* actual = saveAppointmentToFile(appointment);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 
 		}
 		TEST_METHOD(LoadAppointmentsTest017)
 		{
-			Appointment appointment;
-			appointment[i].firstName = "Joan";
-			appointment[i].lastName = "Royales";
-			appointment[i].description = "Heart pacemaker";
-			appointment[i].time = "May 10th, 2024 at 12:00 PM";
-			appointment[i].location = "Mary General Hospital";
-			appointment[i].category = "Cardiologist";
+			struct Appointment {
+				char* firstName;
+				char* lastName;
+				char* description;
+				char* time;
+				char* location;
+				char* category;
+			};
+			char* LoadAppointmentsTest017();
+				struct Appointment appointment;
+				appointment.firstName = "Joan";
+				appointment.lastName = "Royales";
+				appointment.description = "Heart pacemaker";
+				appointment.time = "May 10th, 2024 at 12:00 PM";
+				appointment.location = "Mary General Hospital";
+				appointment.category = "Cardiologist";
 
-			const char* expected = "Scheduled";
-			const char* actual = LoadAppointments(appointment);
+				const char* expected = "A Doctor";
+				const char* actual = LoadAppointments(appointment);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 		}
 		TEST_METHOD(printAppointmentSortedTest018)
 		{
-			Appointment appointment;
-			appointment[i].firstName = "Joan";
-			appointment[i].lastName = "Royales";
-			appointment[i].description = "Heart pacemaker";
-			appointment[i].time = "May 10th, 2024 at 12:00 PM";
-			appointment[i].location = "Mary General Hospital";
-			appointment[i].category = "Cardiologist";
+			struct Appointment {
+				char* firstName;
+				char* lastName;
+				char* description;
+				char* time;
+				char* location;
+				char* category;
+			};
+			char* printAppointmentSortedTest018();
+				struct Appointment appointment;
+				appointment.firstName = "Joan";
+				appointment.lastName = "Royales";
+				appointment.description = "Heart pacemaker";
+				appointment.time = "May 10th, 2024 at 12:00 PM";
+				appointment.location = "Mary General Hospital";
+				appointment.category = "Cardiologist";
 
-			const char* expected = "Scheduled";
-			const char* actual = printAppointmentSorted(appointment);
+				const char* expected = "A Doctor";
+				const char* actual = printAppointmentSorted(appointment);
 
-			std::string(expected, actual);
-
+				std::string(expected, actual);
 		}
 		TEST_METHOD(addLabsTest019)
 		{
-			LAB lab;
-			lab[i].name = "Joan Royales";
-			lab[i].cost = "$100";
-			lab[i].time = "January 8th, 2024 at 3PM";
-			lab[i].category = "Blood work";
+			struct LAB {
+				char* name;
+				char* cost;
+				char* time;
+				char* category;
+			};
+			char* addLabsTest019();
+				struct LAB lab;
+				lab.name = "Joan Royales";
+				lab.cost = "$100";
+				lab.time = "January 8th, 2024 at 3PM";
+				lab.category = "Blood work";
 
 
-			const char* expected = "Test Results";
-			const char* actual = addLabs(lab);
+				const char* expected = "Test Results";
+				const char* actual = addLabs(lab);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 		}
-		TEST_METHOD(saveAppointmentToFileTest020)
+		TEST_METHOD(saveLabToFileTest020)
 		{
-			LAB lab;
-			lab[i].name = "Joan Royales";
-			lab[i].cost = "$100";
-			lab[i].time = "January 8th, 2024 at 3PM";
-			lab[i].category = "Blood work";
+			struct LAB {
+				char* name;
+				char* cost;
+				char* time;
+				char* category;
+			};
+			char* saveLabToFileTest020();
+				struct LAB lab;
+				lab.name = "Joan Royales";
+				lab.cost = "$100";
+				lab.time = "January 8th, 2024 at 3PM";
+				lab.category = "Blood work";
 
 
-			const char* expected = "Test Results";
-			const char* actual = addLabs(lab);
+				const char* expected = "Test Results";
+				const char* actual = saveLabToFile(lab);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 
 		}
-		TEST_METHOD(LoadAppointmentsTest021)
+		TEST_METHOD(LoadLabssTest021)
 		{
-			LAB lab;
-			lab[i].name = "Joan Royales";
-			lab[i].cost = "$100";
-			lab[i].time = "January 8th, 2024 at 3PM";
-			lab[i].category = "Blood work";
+			struct LAB {
+				char* name;
+				char* cost;
+				char* time;
+				char* category;
+			};
+			char* LoadLabsTest021();
+				struct LAB lab;
+				lab.name = "Joan Royales";
+				lab.cost = "$100";
+				lab.time = "January 8th, 2024 at 3PM";
+				lab.category = "Blood work";
 
 
-			const char* expected = "Test Results";
-			const char* actual = addLabs(lab);
+				const char* expected = "Test Results";
+				const char* actual = LoadLabs(lab);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 		}
-		TEST_METHOD(printAppointmentSortedTest022)
+		TEST_METHOD(printLabSortedTest022)
 		{
-			LAB lab;
-			lab[i].name = "Joan Royales";
-			lab[i].cost = "$100";
-			lab[i].time = "January 8th, 2024 at 3PM";
-			lab[i].category = "Blood work";
+			struct LAB {
+				char* name;
+				char* cost;
+				char* time;
+				char* category;
+			};
+			char* printLabTest022();
+				struct LAB lab;
+				lab.name = "Joan Royales";
+				lab.cost = "$100";
+				lab.time = "January 8th, 2024 at 3PM";
+				lab.category = "Blood work";
 
 
-			const char* expected = "Test Results";
-			const char* actual = addLabs(lab);
+				const char* expected = "Test Results";
+				const char* actual = printLabsSorted(lab);
 
-			std::string(expected, actual);
+				std::string(expected, actual);
 
 		}
 		TEST_METHOD(addPrescriptionToFileTest023)
 		{
-			Prescription prescription;
-			prescription[i].patientId = "6976396_JK";
-			prescription[i].medicationName = "Cholecalciferol";
-			prescription[i].dosage = "100mg ";
-			prescription[i].frequency = "Twice per day";
-			prescription[i].quantity = "2 Tablets";
+			struct Prescription {
+				char* patientId;
+				char* medicationName;
+				char* dosage;
+				char* frequency;
+				char* quantity;
+			};
+			char* addPrescriptionToFileTest023();
+				struct Prescription prescription;
+				prescription.patientId = "6976396_JK";
+				prescription.medicationName = "Cholecalciferol";
+				prescription.dosage = "100mg ";
+				prescription.frequency = "Twice per day";
+				prescription.quantity = "2 Tablets";
 
 
-			const char* expected = "Prescription";
-			const char* actual = addPrescriptionToFile(prescription);
+				const char* expected = "Prescription";
+				const char* actual = addPrescriptionToFile(prescription);
 
-			Assert::AreEqual(expected, actual);
+				Assert::AreEqual(expected, actual);
 		}
 		TEST_METHOD(savePrescriptionToFileTest024)
 		{
-			Prescription prescription;
-			prescription[i].patientId = "6976396_JK";
-			prescription[i].medicationName = "Cholecalciferol";
-			prescription[i].dosage = "100mg ";
-			prescription[i].frequency = "Twice per day";
-			prescription[i].quantity = "2 Tablets";
+			struct Prescription {
+				char* patientId;
+				char* medicationName;
+				char* dosage;
+				char* frequency;
+				char* quantity;
+			};
+			char* savePrescriptionToFileTest024();
+				struct Prescription prescription;
+				prescription.patientId = "6976396_JK";
+				prescription.medicationName = "Cholecalciferol";
+				prescription.dosage = "100mg ";
+				prescription.frequency = "Twice per day";
+				prescription.quantity = "2 Tablets";
 
 
-			const char* expected = "Prescription";
-			const char* actual = savePrescriptionToFile(prescription);
+				const char* expected = "Prescription";
+				const char* actual = savePrescriptionToFile(prescription);
 
-			Assert::AreEqual(expected, actual);
+				Assert::AreEqual(expected, actual);
 
 		}
 		TEST_METHOD(LoadPrescriptionTest025)
 		{
-			Prescription prescription;
-			prescription[i].patientId = "6976396_JK";
-			prescription[i].medicationName = "Cholecalciferol";
-			prescription[i].dosage = "100mg ";
-			prescription[i].frequency = "Twice per day";
-			prescription[i].quantity = "2 Tablets";
+			struct Prescription {
+				char* patientId;
+				char* medicationName;
+				char* dosage;
+				char* frequency;
+				char* quantity;
+			};
+			char* LoadPrescriptiontTest025();      // Define
+				struct Prescription prescription;
+				prescription.patientId = "6976396_JK";
+				prescription.medicationName = "Cholecalciferol";
+				prescription.dosage = "100mg ";
+				prescription.frequency = "Twice per day";
+				prescription.quantity = "2 Tablets";
 
 
-			const char* expected = "Prescription";
-			const char* actual = LoadPrescription(prescription);
+				const char* expected = "Prescription";
+				const char* actual = LoadPrescription(prescription);
 
-			Assert::AreEqual(expected, actual);
+				Assert::AreEqual(expected, actual);
 		}
 		TEST_METHOD(printPrescriptionSortedTest026)
 		{
-			Prescription prescription;
-			prescription[i].patientId = "6976396_JK";
-			prescription[i].medicationName = "Cholecalciferol";
-			prescription[i].dosage = "100mg ";
-			prescription[i].frequency = "Twice per day";
-			prescription[i].quantity = "2 Tablets";
+			struct Prescription {
+				char* patientId;
+				char* medicationName;
+				char* dosage;
+				char* frequency;
+				char* quantity;
+			};
+			char* printPrescriptionSortedTest026();
+				struct Prescription prescription;
+				prescription.patientId = "6976396_JK";
+				prescription.medicationName = "Cholecalciferol";
+				prescription.dosage = "100mg ";
+				prescription.frequency = "Twice per day";
+				prescription.quantity = "2 Tablets";
 
 
-			char* expected = "Prescription";
-			char* actual = printPrescriptionSorted(prescription);
+				char* expected = "Prescription";
+				char* actual = printPrescriptionSorted(prescription);
 
-			Assert::AreEqual(expected, actual);
+				Assert::AreEqual(expected, actual);
 
 		}
 		TEST_METHOD(addDiagnosticTest027)
 		{
-			Diagnostic diagnostic;
-			diagnostic[i].patientId = "6976396_JK";
-			diagnostic[i].Symptoms = "Chronical sharp pain in the heart";
-			diagnostic[i].numSymptoms = "3";
-			diagnostic[i].Diagnosis = "Heart Problem";
-			diagnostic[i].numDiagnosis = "1";
+			struct Diagnostic {
+				char* patientId;
+				char* Symptoms;
+				char* numSymptoms;
+				char* Diagnosis;
+				char* numDiagnosis;
+			};
+			char* addDiagnosticTest027();
+				struct Diagnostic diagnostic;
+				diagnostic.patientId = "6976396_JK";
+				diagnostic.Symptoms = "Chronical sharp pain in the heart";
+				diagnostic.numSymptoms = "3";
+				diagnostic.Diagnosis = "Heart Problem";
+				diagnostic.numDiagnosis = "1";
 
 
-			const char* expected = "Prescription";
-			const char* actual = addDiagnostic(diagnostic);
+				const char* expected = "Prescription";
+				const char* actual = addDiagnostic(diagnostic);
 
-			Assert::AreEqual(expected, actual);
+				Assert::AreEqual(expected, actual);
 		}
 		TEST_METHOD(saveDiagnosticToFileTest028)
 		{
-			Diagnostic diagnostic;
-			diagnostic[i].patientId = "6976396_JK";
-			diagnostic[i].Symptoms = "Chronical sharp pain in the heart";
-			diagnostic[i].numSymptoms = "3";
-			diagnostic[i].Diagnosis = "Heart Problem";
-			diagnostic[i].numDiagnosis = "1";
+			struct Diagnostic {
+				char* patientId;
+				char* Symptoms;
+				char* numSymptoms;
+				char* Diagnosis;
+				char* numDiagnosis;
+			};
+			char* saveDiagnosticToFileTest028();
+				struct Diagnostic diagnostic;
+				diagnostic.patientId = "6976396_JK";
+				diagnostic.Symptoms = "Chronical sharp pain in the heart";
+				diagnostic.numSymptoms = "3";
+				diagnostic.Diagnosis = "Heart Problem";
+				diagnostic.numDiagnosis = "1";
 
 
-			const char* expected = "Prescription";
-			const char* actual = saveDiagnosticToFile(diagnostic);
+				const char* expected = "Prescription";
+				const char* actual = saveDiagnosticToFile(diagnostic);
 
-			Assert::AreEqual(expected, actual);
+				Assert::AreEqual(expected, actual);
 
 		}
 		TEST_METHOD(LoadDiagnosticTest029)
 		{
-			Diagnostic diagnostic;
-			diagnostic[i].patientId = "6976396_JK";
-			diagnostic[i].Symptoms = "Chronical sharp pain in the heart";
-			diagnostic[i].numSymptoms = "3";
-			diagnostic[i].Diagnosis = "Heart Problem";
-			diagnostic[i].numDiagnosis = "1";
+			struct Diagnostic {
+				char* patientId;
+				char* Symptoms;
+				char* numSymptoms;
+				char* Diagnosis;
+				char* numDiagnosis;
+			};
+			char* LoadDiagnosticTest029();
+				struct Diagnostic diagnostic;
+				diagnostic.patientId = "6976396_JK";
+				diagnostic.Symptoms = "Chronical sharp pain in the heart";
+				diagnostic.numSymptoms = "3";
+				diagnostic.Diagnosis = "Heart Problem";
+				diagnostic.numDiagnosis = "1";
 
 
-			const char* expected = "Prescription";
-			const char* actual = LoadDiagnostic(diagnostic);
+				const char* expected = "Prescription";
+				const char* actual = LoadDiagnostic(diagnostic);
 
-			Assert::AreEqual(expected, actual);
+				Assert::AreEqual(expected, actual);
 		}
 		TEST_METHOD(printDiagnosticSortedTest030)
 		{
-			Diagnostic diagnostic;
-			diagnostic[i].patientId = "6976396_JK";
-			diagnostic[i].Symptoms = "Chronical sharp pain in the heart";
-			diagnostic[i].numSymptoms = "3";
-			diagnostic[i].Diagnosis = "Heart Problem";
-			diagnostic[i].numDiagnosis = "1";
+			struct Diagnostic {
+				char* patientId;
+				char* Symptoms;
+				char* numSymptoms;
+				char* Diagnosis;
+				char* numDiagnosis;
+			};
+			char* printDiagnosticSortedTest030();
+				struct Diagnostic diagnostic;
+				diagnostic.patientId = "6976396_JK";
+				diagnostic.Symptoms = "Chronical sharp pain in the heart";
+				diagnostic.numSymptoms = "3";
+				diagnostic.Diagnosis = "Heart Problem";
+				diagnostic.numDiagnosis = "1";
 
 
-			const char* expected = "Prescription";
-			const char* actual = printDiagnosticSorted(diagnostic);
+				const char* expected = "Prescription";
+				const char* actual = printDiagnosticSorted(diagnostic);
 
-			Assert::AreEqual(expected, actual);
+				Assert::AreEqual(expected, actual);
 
 		}
     };

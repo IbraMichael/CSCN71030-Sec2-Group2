@@ -28,7 +28,7 @@ char* saveDiagnosticToFile()
     }
     for (int i = 0; i < diagnosticCount; ++i) 
     {
-        fprintf(file, "%d,%s,%s,%s,%s\n",
+        fprintf(file, "%p,%s,%s,%s,%s\n",
             diagnostics[i].patientId, diagnostics[i].Symptoms, diagnostics[i].numSymptoms,
             diagnostics[i].diagnosis, diagnostics[i].numDiagnosis);
     }
@@ -46,8 +46,8 @@ char* LoadDiagnostic()
     }
     diagnosticCount = 0;
 
-    while (fscanf(file, "%.9[^,],%99[^,],%99[^,],%99[^,],%99[^\n]\n",
-        diagnostics[diagnosticCount].patientId, diagnostics[diagnosticCount].Symptoms, diagnostics[diagnosticCount].numSymptoms,
+    while (fscanf(file, "%99[^,],%99[^,],%99[^,],%99[^,],%99[^\n]\n", diagnostics[diagnosticCount].patientId, 
+        diagnostics[diagnosticCount].Symptoms, diagnostics[diagnosticCount].numSymptoms,
         diagnostics[diagnosticCount].diagnosis, diagnostics[diagnosticCount].numDiagnosis) == 5) 
     {
         diagnosticCount++;
@@ -84,7 +84,7 @@ char* printDiagnosticSorted(const char* sortBy)
     for (int i = 0; i < diagnosticCount; ++i) 
     {
         printf("---------------------------------------------------\n");
-        printf("patientId: %d\n", diagnostics[i].patientId);
+        printf("patientId: %p\n", diagnostics[i].patientId);
         printf("Symptoms: %s\n", diagnostics[i].Symptoms);
         printf("numSymptoms: %s\n", diagnostics[i].numSymptoms);
         printf("Diagnosis: %s\n", diagnostics[i].diagnosis);

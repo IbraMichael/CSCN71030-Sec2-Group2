@@ -29,7 +29,7 @@ char* savePrescriptionToFile()
     }
     for (int i = 0; i < prescriptionCount; ++i) 
     {
-        fprintf(file, "%s,%s,%s,%s\n",
+        fprintf(file, "%p,%s,%s,%s\n",
             prescriptions[i].patientId, prescriptions[i].medicationName, prescriptions[i].dosage,
             prescriptions[i].frequency, prescriptions[i].quantity);
     }

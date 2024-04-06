@@ -17,7 +17,7 @@ int compareId(const void* a, const void* b)
 {
     const Doctor* pa = (const Doctor*)a;
     const Doctor* pb = (const Doctor*)b;
-    return strcmp(pa->Id, pb->Id);
+    return strcmp(pa->doctorId, pb->doctorId);
 
 }
 
@@ -45,7 +45,7 @@ bool SaveDoctorToFile()
     for (int i = 0; i < doctorCount; ++i)
     {
         fprintf(file, "%d,%s,%s\n",
-            doctors[i].Name, doctors[i].Id, doctors[i].Specialization);
+            doctors[i].Name, doctors[i].doctorId, doctors[i].Specialization, doctors[i].Contact);
     }
     fclose(file);
 }
@@ -61,7 +61,7 @@ void LoadDoctor()
     }
     doctorCount = 0;
     while (fscanf(file, "%99[^,],%99[^,],%99[^\n]\n",
-        doctors[doctorCount].Name, doctors[doctorCount].Id, doctors[doctorCount].Specialization) == 3)
+        doctors[doctorCount].Name, doctors[doctorCount].doctorId, doctors[doctorCount].Specialization, doctors[doctorCount].Contact) == 3)
     {
         doctorCount++;
         if (doctorCount >= MAX_DOCTORS)
@@ -80,8 +80,8 @@ char* SearchDoctorByName(char* Name)
     {
         if (strcmp(doctors[i].Name, Name) == 0) 
         {
-            fprintf("Doctor Id: %d, Name: %s, Specialization: %s\n", doctors[i].Id,
-                doctors[i].Name, doctors[i].Specialization);
+            fprintf("Doctor Id: %d, Name: %s, Specialization: %s\n", doctors[i].doctorId,
+                doctors[i].Name, doctors[i].Specialization, doctors[i].Contact);
             doctorCount = 1;
         }
     }
@@ -98,8 +98,8 @@ char* SearchDoctorBySpecialization(char* Specialization)
     {
         if (strcmp(doctors[i].Specialization, Specialization ) == 0)
         {
-            fprintf("Doctor Id: %d, Name: %s, Specialization: %s\n", doctors[i].Id,
-                doctors[i].Name, doctors[i].Specialization);
+            fprintf("Doctor Id: %d, Name: %s, Specialization: %s\n", doctors[i].doctorId,
+                doctors[i].Name, doctors[i].Specialization, doctors[i].Contact);
             doctorCount = 1;
         }
     }
@@ -121,9 +121,10 @@ char* PrintDoctorSorted(const char* sortBy)
         for (int i = 0; i < doctorCount; ++i)
         {
             printf("---------------------------------------------------\n");
-            printf("ID: %d\n", doctors[i].Id);
+            printf("ID: %d\n", doctors[i].doctorId);
             printf("Name: %s\n", doctors[i].Name);
             printf("Specialization: %s\n", doctors[i].Specialization);
+            printf("Contact: %s\n", doctors[i].Contact);
             printf("---------------------------------------------------\n");
         }
    
