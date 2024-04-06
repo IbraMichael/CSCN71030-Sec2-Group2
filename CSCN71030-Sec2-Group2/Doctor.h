@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 
 #define MAX_NAME 30
@@ -21,12 +22,12 @@ typedef struct doctor{
 } Doctor;
 
 // functions for 
-void AddDoctor(const Doctor doctor);
-void saveDoctorToFile();
+char* AddDoctor(const Doctor doctor);
+bool SaveDoctorToFile();
 void LoadDoctor();
-void printDoctorSorted(const char* sortBy);
-void SearchDoctorByName(char* Name);
-void SearchDoctorBySpecialization(char* specialization);
+char* PrintDoctorSorted(const char* sortBy);
+char* SearchDoctorByName(char* Name);
+char* SearchDoctorBySpecialization(char* specialization);
 
 
 

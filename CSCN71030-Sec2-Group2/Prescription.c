@@ -19,7 +19,7 @@ int compareMedsNames(const void* a, const void* b)
 }
 
 // Save patient prescriptions to file
-void savePrescriptionToFile() 
+char* savePrescriptionToFile()
 {
     FILE* file = fopen("meds.txt", "w");
     if (!file) 
@@ -37,7 +37,7 @@ void savePrescriptionToFile()
 }
 
 // load patient prescription to file
-void LoadPrescription()
+char* LoadPrescription()
 {
     FILE* file = fopen("meds.txt", "r");
     if (!file) 
@@ -64,7 +64,7 @@ void LoadPrescription()
 }
 
 // Add patient prescription to file
-void addPrescriptionToFile(const Prescription prescription) 
+char* addPrescriptionToFile(const Prescription prescription)
 {
     if (prescriptionCount >= MAX_PRESCRIPTION) 
     {
@@ -77,7 +77,7 @@ void addPrescriptionToFile(const Prescription prescription)
 
 
 // Display patient prescription using printf
-void printPrescrptionSorted(const char* sortBy) 
+char* printPrescriptionSorted(const char* sortBy)
 {
     // Load prescriptions from file
     LoadPrescription();

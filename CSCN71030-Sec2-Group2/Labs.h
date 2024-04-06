@@ -24,8 +24,8 @@ typedef struct lab
 } LAB;
 
 // Functions for patient lab test
-void saveLabToFile();
-void addLabs(const LAB lab);
-void LoadLabs();
-void printLabsSorted(const char* sortBy);
+char* saveLabToFile();
+char* addLabs(const LAB lab);
+char* LoadLabs();
+char* printLabsSorted(const char* sortBy);
 

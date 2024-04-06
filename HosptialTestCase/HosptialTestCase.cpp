@@ -1,16 +1,38 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "Patients.h"
-#include "Appointment.h"
-#include "Diagnosis.h"
-#include "Doctor.h"
-#include "Labs.h"
-#include "Nurse.h"
-#include "EList.h"
-#include "Prescription.h"
+#include "../CSCN71030-Sec2-Group2/Patients.h"
+#include "../CSCN71030-Sec2-Group2/Nurse.h"
+#include "../CSCN71030-Sec2-Group2/EList.h"
 #include <cstring>
 #include <iostream>
+#include "../CSCN71030-Sec2-Group2/Doctor.h"
+#include "../CSCN71030-Sec2-Group2/Labs.h"
+#include "../CSCN71030-Sec2-Group2/Appointment.h"
+#include "../CSCN71030-Sec2-Group2/Prescription.h"
+#include "../CSCN71030-Sec2-Group2/Diagnosis.h"
 
+char* AddDoctor(const Doctor doctor);
+bool SaveDoctorToFile();
+void LoadDoctor();
+char* PrintDoctorSorted(const char* sortBy);
+char* SearchDoctorByName(char* Name);
+char* SearchDoctorBySpecialization(char* specialization);
+char* saveLabToFile();
+char* addLabs(const LAB lab);
+char* LoadLabs();
+char* printLabsSorted(const char* sortBy);
+char* saveAppointmentToFile();
+char* LoadAppointments();
+char* addAppointment(const Appointment appointment);
+char* printAppointmentSorted(const char* sortBy);
+char* savePrescriptionToFile();
+char* addPrescriptionToFile(const Prescription prescription);
+char* LoadPrescription();
+char* printPrescriptionSorted(const char* sortBy);
+char* saveDiagnosticToFile();
+char* LoadDiagnostic();
+char* addDiagnostic(const Diagnostic diagnostic);
+char* printDiagnosticSorted(const char* sortBy);
 
 
 
@@ -27,7 +49,7 @@ namespace HosptialTestCase
     public:
 
 
-        TEST_METHOD(loadPatientsFromFile_Test)
+        TEST_METHOD(loadPatientsFromFileTest001)
         {
             // Arrange - Clear the file to ensure it's empty before adding new patients
             FILE* clearFile = fopen("patients.txt", "w");
@@ -72,7 +94,7 @@ namespace HosptialTestCase
 
 
 
-        TEST_METHOD(addPatient_Test)
+        TEST_METHOD(addPatientTest002)
         {
             // Arrange
             PATIENT newPatient = { "John", "Doe", "1990-01-01", "No allergies", "123-456-7890", "HC123", "Dr. Smith", "123 Main St", "Male", 0 };
@@ -86,7 +108,7 @@ namespace HosptialTestCase
         }
 
 
-        TEST_METHOD(deletePatient_test)
+        TEST_METHOD(deletePatientTest003)
         {
             // Arrange - Ensure there is at least one patient to delete
             char healthCardNumber[] = "HC123"; // Make sure this patient exists; you might add one as part of your test setup
@@ -99,10 +121,7 @@ namespace HosptialTestCase
             Assert::AreEqual(expectedMessage, message, L"The patient was not deleted successfully.");
         }
 
-
-
-
-        TEST_METHOD(findPatient_test)
+        TEST_METHOD(findPatientTest004)
         {
             // Arrange - Add a known patient
             PATIENT testPatient = { "TestFirst", "TestLast", "2000-01-01", "TestHistory", "TestContact", "TestHCN123", "TestDoctor", "TestAddress", "Male", 100 };
@@ -116,7 +135,7 @@ namespace HosptialTestCase
             Assert::IsTrue(found, L"findPatient did not find the patient.");
         }
 
-        TEST_METHOD(printPatientsSorted_test)
+        TEST_METHOD(printPatientsSortedTest005)
         {
             // Act
             // Assume `printPatientsSorted` adapted to return an array or list of patients sorted, not just print
@@ -126,7 +145,7 @@ namespace HosptialTestCase
             Assert::IsTrue(isSortedCorrectly, L"Patients are not sorted correctly.");
         }
 
-        TEST_METHOD(findAndEditPatient_Test)
+        TEST_METHOD(findAndEditPatientTest006)
         {
             // Arrange - Add a known patient
             PATIENT testPatient = { "John", "Doe", "1990-01-01", "Test History", "Test Contact", "TestHCN123", "TestDoctor", "TestAddress", "Male", 100 };
@@ -164,7 +183,7 @@ namespace HosptialTestCase
             Assert::AreEqual("Female", editedPatient->gender, L"Gender not updated correctly.");
         }
 
-        TEST_METHOD(SavePatientsToFileTest)
+        TEST_METHOD(SavePatientsToFileTest007)
         {
             // Arrange
             PATIENT testPatient = { "John", "Doe", "1990-01-01", "No allergies", "123-456-7890", "HC123", "Dr. Smith", "123 Main St", "Male", 0 };
@@ -179,7 +198,7 @@ namespace HosptialTestCase
         }
 
         // Test case for displayEditMenu()
-        TEST_METHOD(DisplayEditMenuTest)
+        TEST_METHOD(DisplayEditMenuTest008)
         {
             // Arrange
             char healthCardNumber[] = "HC123"; // Assuming this patient exists
@@ -196,5 +215,332 @@ namespace HosptialTestCase
             // Restore stdin
             std::cin.rdbuf(oldStdin);
         }
+
+		TEST_METHOD(AddDoctorTest009)
+		{
+			Doctor doctor;
+			doctor[i].Id = 300098;
+			doctor[i].Name = "Joan Royales";
+			doctor[i].Specialization = "General Medicine";
+			doctor[i].Contact = "5194478999";
+
+			char* expected = "A Doctor";
+			char* actual = AddDoctor(doctor);
+
+			std::string(expected, actual);
+		}
+		TEST_METHOD(SaveDoctorToFileTest010)
+		{
+			Doctor doctor;
+			doctor[i].Id = 30;
+			doctor[i].Name = "Joan Royales";
+			doctor[i].Specialization = "General Medicine";
+			doctor[i].Contact = "5194478999";
+
+			char* expected = "A Doctor";
+			char* actual = AddDoctor(doctor);
+
+			std::string(expected, actual);
+
+		}
+		TEST_METHOD(LoadDoctorTest011)
+		{
+			Doctor doctor;
+			doctor[i].Id = 30;
+			doctor[i].Name = "Joan Royales";
+			doctor[i].Specialization = "General Medicine";
+			doctor[i].Contact = "5194478999";
+
+			char* expected = "A Doctor";
+			char* actual = AddDoctor(doctor);
+
+			std::string(expected, actual);
+		}
+		TEST_METHOD(PrintDoctorSortedTest012)
+		{
+			Doctor doctor;
+			doctor[i].Id = 30;
+			doctor[i].Name = "Joan Royales";
+			doctor[i].Specialization = "General Medicine";
+			doctor[i].Contact = "5194478999";
+
+			char* expected = "A Doctor";
+			char* actual = AddDoctor(doctor);
+
+			std::string(expected, actual);
+
+		}
+		TEST_METHOD(SearchDoctorByNameTest013)
+		{
+			Doctor doctor;
+			doctor[i].Id = 30;
+			doctor[i].Name = "Joan Royales";
+			doctor[i].Specialization = "General Medicine";
+			doctor[i].Contact = "5194478999";
+
+			char* expected = "A Doctor";
+			char* actual = AddDoctor(doctor);
+
+			std::string(expected, actual);
+
+		}
+		TEST_METHOD(SearchDoctorBySpecializationTest014)
+		{
+			Doctor doctor;
+			doctor[i].Id = 30;
+			doctor[i].Name = "Joan Royales";
+			doctor[i].Specialization = "General Medicine";
+			doctor[i].Contact = "5194478999";
+
+			char* expected = "A Doctor";
+			char* actual = AddDoctor(doctor);
+
+			std::string(expected, actual);
+
+		}
+		TEST_METHOD(addAppointmentTest015)
+		{
+			Appointment appointment;
+			appointment[i].firstName = "Joan";
+			appointment[i].lastName = "Royales";
+			appointment[i].description = "Heart pacemaker";
+			appointment[i].time = "May 10th, 2024 at 12:00 PM";
+			appointment[i].location = "Mary General Hospital";
+			appointment[i].category = "Cardiologist";
+
+			const char* expected = "A Doctor";
+			const char* actual = addAppointment(appointment);
+
+			std::string(expected, actual);
+		}
+		TEST_METHOD(saveAppointmentToFileTest016)
+		{
+			Appointment appointment;
+			appointment[i].firstName = "Joan";
+			appointment[i].lastName = "Royales";
+			appointment[i].description = "Heart pacemaker";
+			appointment[i].time = "May 10th, 2024 at 12:00 PM";
+			appointment[i].location = "Mary General Hospital";
+			appointment[i].category = "Cardiologist";
+
+			const char* expected = "Scheduled";
+			const char* actual = saveAppointmentToFile(appointment);
+
+			std::string(expected, actual);
+
+		}
+		TEST_METHOD(LoadAppointmentsTest017)
+		{
+			Appointment appointment;
+			appointment[i].firstName = "Joan";
+			appointment[i].lastName = "Royales";
+			appointment[i].description = "Heart pacemaker";
+			appointment[i].time = "May 10th, 2024 at 12:00 PM";
+			appointment[i].location = "Mary General Hospital";
+			appointment[i].category = "Cardiologist";
+
+			const char* expected = "Scheduled";
+			const char* actual = LoadAppointments(appointment);
+
+			std::string(expected, actual);
+		}
+		TEST_METHOD(printAppointmentSortedTest018)
+		{
+			Appointment appointment;
+			appointment[i].firstName = "Joan";
+			appointment[i].lastName = "Royales";
+			appointment[i].description = "Heart pacemaker";
+			appointment[i].time = "May 10th, 2024 at 12:00 PM";
+			appointment[i].location = "Mary General Hospital";
+			appointment[i].category = "Cardiologist";
+
+			const char* expected = "Scheduled";
+			const char* actual = printAppointmentSorted(appointment);
+
+			std::string(expected, actual);
+
+		}
+		TEST_METHOD(addLabsTest019)
+		{
+			LAB lab;
+			lab[i].name = "Joan Royales";
+			lab[i].cost = "$100";
+			lab[i].time = "January 8th, 2024 at 3PM";
+			lab[i].category = "Blood work";
+
+
+			const char* expected = "Test Results";
+			const char* actual = addLabs(lab);
+
+			std::string(expected, actual);
+		}
+		TEST_METHOD(saveAppointmentToFileTest020)
+		{
+			LAB lab;
+			lab[i].name = "Joan Royales";
+			lab[i].cost = "$100";
+			lab[i].time = "January 8th, 2024 at 3PM";
+			lab[i].category = "Blood work";
+
+
+			const char* expected = "Test Results";
+			const char* actual = addLabs(lab);
+
+			std::string(expected, actual);
+
+		}
+		TEST_METHOD(LoadAppointmentsTest021)
+		{
+			LAB lab;
+			lab[i].name = "Joan Royales";
+			lab[i].cost = "$100";
+			lab[i].time = "January 8th, 2024 at 3PM";
+			lab[i].category = "Blood work";
+
+
+			const char* expected = "Test Results";
+			const char* actual = addLabs(lab);
+
+			std::string(expected, actual);
+		}
+		TEST_METHOD(printAppointmentSortedTest022)
+		{
+			LAB lab;
+			lab[i].name = "Joan Royales";
+			lab[i].cost = "$100";
+			lab[i].time = "January 8th, 2024 at 3PM";
+			lab[i].category = "Blood work";
+
+
+			const char* expected = "Test Results";
+			const char* actual = addLabs(lab);
+
+			std::string(expected, actual);
+
+		}
+		TEST_METHOD(addPrescriptionToFileTest023)
+		{
+			Prescription prescription;
+			prescription[i].patientId = "6976396_JK";
+			prescription[i].medicationName = "Cholecalciferol";
+			prescription[i].dosage = "100mg ";
+			prescription[i].frequency = "Twice per day";
+			prescription[i].quantity = "2 Tablets";
+
+
+			const char* expected = "Prescription";
+			const char* actual = addPrescriptionToFile(prescription);
+
+			Assert::AreEqual(expected, actual);
+		}
+		TEST_METHOD(savePrescriptionToFileTest024)
+		{
+			Prescription prescription;
+			prescription[i].patientId = "6976396_JK";
+			prescription[i].medicationName = "Cholecalciferol";
+			prescription[i].dosage = "100mg ";
+			prescription[i].frequency = "Twice per day";
+			prescription[i].quantity = "2 Tablets";
+
+
+			const char* expected = "Prescription";
+			const char* actual = savePrescriptionToFile(prescription);
+
+			Assert::AreEqual(expected, actual);
+
+		}
+		TEST_METHOD(LoadPrescriptionTest025)
+		{
+			Prescription prescription;
+			prescription[i].patientId = "6976396_JK";
+			prescription[i].medicationName = "Cholecalciferol";
+			prescription[i].dosage = "100mg ";
+			prescription[i].frequency = "Twice per day";
+			prescription[i].quantity = "2 Tablets";
+
+
+			const char* expected = "Prescription";
+			const char* actual = LoadPrescription(prescription);
+
+			Assert::AreEqual(expected, actual);
+		}
+		TEST_METHOD(printPrescriptionSortedTest026)
+		{
+			Prescription prescription;
+			prescription[i].patientId = "6976396_JK";
+			prescription[i].medicationName = "Cholecalciferol";
+			prescription[i].dosage = "100mg ";
+			prescription[i].frequency = "Twice per day";
+			prescription[i].quantity = "2 Tablets";
+
+
+			char* expected = "Prescription";
+			char* actual = printPrescriptionSorted(prescription);
+
+			Assert::AreEqual(expected, actual);
+
+		}
+		TEST_METHOD(addDiagnosticTest027)
+		{
+			Diagnostic diagnostic;
+			diagnostic[i].patientId = "6976396_JK";
+			diagnostic[i].Symptoms = "Chronical sharp pain in the heart";
+			diagnostic[i].numSymptoms = "3";
+			diagnostic[i].Diagnosis = "Heart Problem";
+			diagnostic[i].numDiagnosis = "1";
+
+
+			const char* expected = "Prescription";
+			const char* actual = addDiagnostic(diagnostic);
+
+			Assert::AreEqual(expected, actual);
+		}
+		TEST_METHOD(saveDiagnosticToFileTest028)
+		{
+			Diagnostic diagnostic;
+			diagnostic[i].patientId = "6976396_JK";
+			diagnostic[i].Symptoms = "Chronical sharp pain in the heart";
+			diagnostic[i].numSymptoms = "3";
+			diagnostic[i].Diagnosis = "Heart Problem";
+			diagnostic[i].numDiagnosis = "1";
+
+
+			const char* expected = "Prescription";
+			const char* actual = saveDiagnosticToFile(diagnostic);
+
+			Assert::AreEqual(expected, actual);
+
+		}
+		TEST_METHOD(LoadDiagnosticTest029)
+		{
+			Diagnostic diagnostic;
+			diagnostic[i].patientId = "6976396_JK";
+			diagnostic[i].Symptoms = "Chronical sharp pain in the heart";
+			diagnostic[i].numSymptoms = "3";
+			diagnostic[i].Diagnosis = "Heart Problem";
+			diagnostic[i].numDiagnosis = "1";
+
+
+			const char* expected = "Prescription";
+			const char* actual = LoadDiagnostic(diagnostic);
+
+			Assert::AreEqual(expected, actual);
+		}
+		TEST_METHOD(printDiagnosticSortedTest030)
+		{
+			Diagnostic diagnostic;
+			diagnostic[i].patientId = "6976396_JK";
+			diagnostic[i].Symptoms = "Chronical sharp pain in the heart";
+			diagnostic[i].numSymptoms = "3";
+			diagnostic[i].Diagnosis = "Heart Problem";
+			diagnostic[i].numDiagnosis = "1";
+
+
+			const char* expected = "Prescription";
+			const char* actual = printDiagnosticSorted(diagnostic);
+
+			Assert::AreEqual(expected, actual);
+
+		}
     };
 }

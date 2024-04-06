@@ -18,7 +18,7 @@ int compareSymptoms(const void* a, const void* b)
 }
 
 // Save the patient diagnosis to file
-void saveDiagnosticToFile() 
+char* saveDiagnosticToFile()
 {
     FILE* file = fopen("diagnostic.txt", "w");
     if (!file) 
@@ -30,13 +30,13 @@ void saveDiagnosticToFile()
     {
         fprintf(file, "%d,%s,%s,%s,%s\n",
             diagnostics[i].patientId, diagnostics[i].Symptoms, diagnostics[i].numSymptoms,
-            diagnostics[i].diagnostic, diagnostics[i].numDiagnostic);
+            diagnostics[i].diagnosis, diagnostics[i].numDiagnosis);
     }
     fclose(file);
 }
 
 // Load patient diagnosis to from the file
-void LoadDiagnostic()
+char* LoadDiagnostic()
 {
     FILE* file = fopen("diagnostic.txt", "r");
     if (!file) 
@@ -48,7 +48,7 @@ void LoadDiagnostic()
 
     while (fscanf(file, "%.9[^,],%99[^,],%99[^,],%99[^,],%99[^\n]\n",
         diagnostics[diagnosticCount].patientId, diagnostics[diagnosticCount].Symptoms, diagnostics[diagnosticCount].numSymptoms,
-        diagnostics[diagnosticCount].diagnostic, diagnostics[diagnosticCount].numDiagnostic) == 5) 
+        diagnostics[diagnosticCount].diagnosis, diagnostics[diagnosticCount].numDiagnosis) == 5) 
     {
         diagnosticCount++;
         if (diagnosticCount >= MAX_DIAGNOSTIC) 
@@ -61,7 +61,7 @@ void LoadDiagnostic()
 }
 
 // Add patient diagnosis to patient file or history
-void addDiagnostic(const Diagnostic diagnostic) {
+char* addDiagnostic(const Diagnostic diagnostic) {
     if (diagnosticCount >= MAX_DIAGNOSTIC) 
     {
         printf("Cannot add more diagnostics. Storage full.\n");
@@ -73,7 +73,7 @@ void addDiagnostic(const Diagnostic diagnostic) {
 
 
 // Print patient Diagnosis details
-void printDiagnosticSorted(const char* sortBy) 
+char* printDiagnosticSorted(const char* sortBy)
 {
     // Load diagnostics from file
     LoadDiagnostic();
@@ -87,8 +87,8 @@ void printDiagnosticSorted(const char* sortBy)
         printf("patientId: %d\n", diagnostics[i].patientId);
         printf("Symptoms: %s\n", diagnostics[i].Symptoms);
         printf("numSymptoms: %s\n", diagnostics[i].numSymptoms);
-        printf("Diagnostic: %s\n", diagnostics[i].diagnostic);
-        printf("numDiagnostic: %s\n", diagnostics[i].numDiagnostic);
+        printf("Diagnosis: %s\n", diagnostics[i].diagnosis);
+        printf("numDiagnosis: %s\n", diagnostics[i].numDiagnosis);
         printf("---------------------------------------------------\n");
     }
 }

@@ -22,7 +22,7 @@ int compareLabNames(const void* a, const void* b)
 }
 
 // Save patient lab test results to file
-void saveLabToFile() 
+char* saveLabToFile() 
 {
     FILE* file = fopen("lab.txt", "w");
     if (!file) 
@@ -41,7 +41,7 @@ void saveLabToFile()
 }
 
 // Load patient lab test from or to file
-void LoadLabs() 
+char* LoadLabs()
 {
     FILE* file = fopen("lab.txt", "r");
     if (!file) 
@@ -66,7 +66,7 @@ void LoadLabs()
 }
 
 // Add patient lab test to patient file or history
-void addLabs(const LAB lab) 
+char* addLabs(const LAB lab)
 {
     if (labCount >= MAX_LABS) 
     {
@@ -78,7 +78,7 @@ void addLabs(const LAB lab)
 }
 
 // Display patient lab test using printf
-void printLabsSorted(const char* sortBy) 
+char* printLabsSorted(const char* sortBy)
 {
     // Load labs from file
     LoadLabs();

@@ -26,8 +26,8 @@ typedef struct appointment
 } Appointment;
 
 // Functions to display or implement patient appointments
-void saveAppointmentToFile();
-void LoadAppointments();
-void addAppointment(const Appointment appointment);
-void printAppointmentSorted(const char* sortBy);
+char* saveAppointmentToFile();
+char* LoadAppointments();
+char* addAppointment(const Appointment appointment);
+char* printAppointmentSorted(const char* sortBy);
 

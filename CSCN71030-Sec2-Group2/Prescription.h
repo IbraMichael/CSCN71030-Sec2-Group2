@@ -18,8 +18,8 @@ typedef struct prescription
 } Prescription;
 
 // Functions for medical prescription
-void savePrescriptionToFile();
-void addPrescriptionToFile(const Prescription prescription);
-void LoadPrescription();
-void printPrescrptionSorted(const char* sortBy);
+char* savePrescriptionToFile();
+char* addPrescriptionToFile(const Prescription prescription);
+char* LoadPrescription();
+char* printPrescriptionSorted(const char* sortBy);
 

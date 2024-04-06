@@ -24,7 +24,7 @@ int compareTime(const void* a, const void* b)
 }
 
 // Save patient appointments to patient file
-void saveAppointmentToFile() 
+char* saveAppointmentToFile() 
 {
 	FILE* file = fopen("appointment.txt", "w");
     if (!file) 
@@ -43,7 +43,7 @@ void saveAppointmentToFile()
 
 
 // Load patient scheduled appintments to and from file
-void LoadAppointments()
+char* LoadAppointments()
 {
     FILE* file = fopen("appointment.txt", "r");
     if (!file) 
@@ -68,7 +68,7 @@ void LoadAppointments()
 }
 
 // Add patient appointments to patiient file
-void addAppointment(const Appointment appointment) 
+char* addAppointment(const Appointment appointment) 
 {
     if (appointmentCount >= MAX_APPOINTMENTS) 
     {
@@ -80,7 +80,7 @@ void addAppointment(const Appointment appointment)
 }
 
 // Display patient appointments using printf
-void printAppointmentSorted(const char* sortBy) 
+char* printAppointmentSorted(const char* sortBy) 
 {
     // Load labs from file
     LoadAppointments();

@@ -22,7 +22,7 @@ int compareId(const void* a, const void* b)
 }
 
 // 
-void AddDoctor(const Doctor doctor) 
+char* AddDoctor(const Doctor doctor) 
 {
     if (doctorCount >= MAX_DOCTORS)
     {
@@ -34,7 +34,7 @@ void AddDoctor(const Doctor doctor)
 }
 
 //
-void saveDoctorToFile() 
+bool SaveDoctorToFile() 
 {
     FILE* file = fopen("doctor.txt", "w");
     if (!file)
@@ -74,7 +74,7 @@ void LoadDoctor()
 }
 
 //
-void SearchDoctorByName(char* Name) 
+char* SearchDoctorByName(char* Name) 
 {
     for (int i = 0; i < doctorCount; ++i) 
     {
@@ -92,7 +92,7 @@ void SearchDoctorByName(char* Name)
 }
 
 //
-void SearchDoctorBySpecialization(char* Specialization) 
+char* SearchDoctorBySpecialization(char* Specialization) 
 {
     for (int i = 0; i < doctorCount; ++i)
     {
@@ -110,7 +110,7 @@ void SearchDoctorBySpecialization(char* Specialization)
 }
 
 //
-void printDoctorSorted(const char* sortBy) 
+char* PrintDoctorSorted(const char* sortBy) 
 {
         // Load labs from file
         LoadDoctor();
