@@ -109,7 +109,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\micha\OneDrive\Desktop\Project 2 final\CSCN71030-Sec2-Group2\x64\Debug;C:\Users\ozone\Desktop\Team Based\Team Based\CSCN71030-Sec2-Group2\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>EList.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>EList.obj;Nurse.obj;Patients.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

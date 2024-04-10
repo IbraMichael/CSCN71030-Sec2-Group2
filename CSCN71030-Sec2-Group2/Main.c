@@ -271,7 +271,7 @@ void showDoctorDashboard()
                 case 2:
                     printf("\Prescription sorted by name:\n");
 
-                    printPrescrptionSorted("medicationName");
+                    printPrescriptionSorted("medicationName");
 
                     break;
 

@@ -30,7 +30,7 @@ char* AddDoctor(const Doctor doctor)
         return;
     }
     doctors[doctorCount++] = doctor;
-    saveDoctorToFile();
+    SaveDoctorToFile();
 }
 
 //
