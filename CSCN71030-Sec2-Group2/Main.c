@@ -668,6 +668,9 @@ void showAdminDashboard(ENODE** head) {
         }
         case 4:
             printf("Exiting...\n\n");
+            FILE* file = fopen("empdata.txt", "w");
+            saveList(file, *head);
+            fclose(file);
             main();
             break;
         default:
@@ -675,6 +678,8 @@ void showAdminDashboard(ENODE** head) {
             break;
         }
     } while (choice2 != 4);
+
+    
     return;
 
    
