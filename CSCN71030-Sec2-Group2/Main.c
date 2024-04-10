@@ -21,7 +21,8 @@ void showBillingMenu();
 void showAdminDashboard(ENODE** head);
 
 int main() {
-    
+    srand(time(NULL));
+
     ENODE* head = NULL;
     const char* filename = "empdata.txt";
     FILE* file = fopen(filename, "r");
@@ -423,8 +424,8 @@ void showBillingMenu()
     printf("Patient's bill: %d\n", patient.bills);
 
     // Clear a part of the bill
-    int payment = 500; // Example payment amount
-    clearBill(&patient, payment);
+    int payment = 5; // Example payment amount
+    clearBill(&patient, payment, false);
     if (patient.bills >= 0) {
         printf("Patient's remaining bill after payment: %d\n", patient.bills);
     }
@@ -557,6 +558,7 @@ void showNurseDashboard()
             case 'e':
 
                 printf("Exiting...\n");
+                showNurseDashboard();
                 break;
 
             default:

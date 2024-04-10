@@ -1,2 +1,0 @@
-bob bob bob 1
-mark mark mark 0
