@@ -412,25 +412,24 @@ void showDoctorDashboard()
 // Simplified billing menu - Implement as needed
 void showBillingMenu()
 {
-    printf("\n--- Billing Management ---\n");
- 
-
-    // Assuming PATIENT is defined properly
+    printf("Welcome, Nurse! Here are your options:\n");
+    // Nurse-specific options here
     PATIENT patient;
+    int payment = 0;
     patient.bills = 0; // Initialize patient bills
 
     // Generate a bill for the patient
     generateBill(&patient);
     printf("Patient's bill: %d\n", patient.bills);
 
+    printf("How much did the patient pay?\n");
+    scanf("%d", &payment);
+
     // Clear a part of the bill
-    int payment = 5; // Example payment amount
     clearBill(&patient, payment, false);
     if (patient.bills >= 0) {
         printf("Patient's remaining bill after payment: %d\n", patient.bills);
     }
-
-    return 0;
 }
 
 
@@ -569,6 +568,7 @@ void showNurseDashboard()
 
     case 2:
         showBillingMenu();
+        showNurseDashboard();
         break;
     case 3:
         printf("Exiting...\n");
