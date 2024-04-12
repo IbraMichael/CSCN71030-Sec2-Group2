@@ -24,7 +24,7 @@ typedef struct doctor{
 
 // functions for 
 char* AddDoctor(const Doctor doctor);
-bool SaveDoctorToFile();
+char* SaveDoctorToFile();
 void LoadDoctor();
 char* PrintDoctorSorted(const char* sortBy);
 char* SearchDoctorByName(char* Name);

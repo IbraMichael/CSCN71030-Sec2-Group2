@@ -34,7 +34,7 @@ char* AddDoctor(const Doctor doctor)
 }
 
 //
-bool SaveDoctorToFile() 
+char* SaveDoctorToFile() 
 {
     FILE* file = fopen("doctor.txt", "w");
     if (!file)
