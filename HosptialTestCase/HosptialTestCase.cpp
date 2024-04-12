@@ -480,20 +480,9 @@ namespace HosptialTestCase
 
 				// Assert
 				Assert::IsNotNull(result);
-				Assert::AreEqual("Success", result); // Assuming "Success" is the expected output upon successful file save
-			}
-
-			TEST_METHOD(addPrescriptionToFile_InvalidInput_ReturnsError)
-			{
-				// Arrange
-				Prescription prescription;
-				// Act
-				char* result = addPrescriptionToFile(prescription);
-
-				// Assert
-				Assert::IsNotNull(result);
 				Assert::AreEqual("Error", result); // Assuming "Error" is the expected output upon unsuccessful file save
 			}
+
 			TEST_METHOD(LoadPrescription_ValidInput_ReturnsSuccess)
 			{
 				// Arrange

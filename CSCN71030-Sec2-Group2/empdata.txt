@@ -1,3 +1,5 @@
+doc docpass John 0
+docpass docpass doc 0
 docpass docpass John 0
 John John John 0
 bob bob bob 1
