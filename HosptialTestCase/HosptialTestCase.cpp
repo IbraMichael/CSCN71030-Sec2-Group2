@@ -224,7 +224,8 @@ namespace HosptialTestCase
 		{
 		public:
 			TEST_METHOD(AddDoctorTest009)
-			{	Doctor doctor("John", "300893", "Cardiology", "519-456-7890");
+			{	
+				Doctor doctor("John", "300893", "Cardiology", "519-456-7890");
 
 				//Call the function to add the doctor
 				char* result = AddDoctor(doctor);
